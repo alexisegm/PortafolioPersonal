@@ -1,70 +1,101 @@
 /* =========================================
    [JS-1] MODELO MOCK (Estado de la aplicación)
    ========================================= */
-// Usamos una estructura de rutinas divididas (pecho, espalda, bíceps, etc.) para simular una semana real.
+const WEEKLY_GOAL = 15; // Meta de la Fase 2
+
 const weeklyRoutine = [
     {
         id: 1,
         name: "Lunes - Pecho",
         exercises: [
-            { id: 101, name: "Press de Pecho Plano", details: "4 series x 10 reps", completed: false },
-            { id: 102, name: "Aperturas con Mancuernas", details: "3 series x 12 reps", completed: false }
+            { id: 101, name: "Press de Pecho Plano", details: "4 series x 10 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1KToIItWgxkJ5hqVVzqPh4z9Fn5PRvYci/view?usp=drive_link" },
+            { id: 102, name: "Aperturas con Mancuernas", details: "3 series x 12 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1XpqU96Cu8IwcG6-agc5F6p_QqZJosYjk/view?usp=drive_link" },
+            { id: 103, name: "Press de Pecho Inclinado", details: "4 series x 10 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1GsbK12_ZbZeBv5-YsaGE8Up4UxqkahVu/view?usp=drive_link" },
+            { id: 104, name: "Pullover", details: "3 series x 12 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1gsE6RYqToN3oYq2l4ZjsUq0NcWbtraQR/view?usp=drive_link" }
         ]
     },
     {
         id: 2,
         name: "Martes - Espalda",
         exercises: [
-            { id: 201, name: "Dominadas", details: "4 series al fallo", completed: false },
-            { id: 202, name: "Remo con Barra", details: "4 series x 10 reps", completed: false }
+            { id: 201, name: "Dominadas", details: "4 series al fallo", completed: false, videoUrl: "https://drive.google.com/file/d/1AizUmnLCPsZLGLHH-L-yRptDg4bPM75L/view?usp=drive_link" },
+            { id: 202, name: "Remo con Barra", details: "4 series x 10 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1mqkYtsYrUrXOpNYgsc4J74l8ebV7NQjW/view?usp=drive_link" },
+            { id: 203, name: "Peso Muerto", details: "4 series x 8 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1zd65LxC_eNQ4O9T8Y565qlLwY5BA-vDf/view?usp=drive_link" },
+            { id: 204, name: "Jalón al Pecho en Polea Alta", details: "4 series x 12 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1gCIPEJmkl2uhmIRdPw0po5vBB1ZVCFYa/view?usp=drive_link" }
         ]
     },
     {
         id: 3,
         name: "Miércoles - Piernas",
         exercises: [
-            { id: 301, name: "Sentadillas", details: "4 series x 12 reps", completed: false },
-            { id: 302, name: "Prensa", details: "4 series x 15 reps", completed: false }
+            { id: 301, name: "Sentadillas", details: "4 series x 12 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1_ymkThNJvLl5QTnEhVs_2uyHGI9H7X01/view?usp=drive_link" },
+            { id: 302, name: "Prensa", details: "4 series x 15 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1ksyg2r10WQt2XiOjtkx22fIkR5nybk-O/view?usp=drive_link" },
+            { id: 303, name: "Elevación de Talones", details: "4 series x 20 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1sP7xi13cVJHGIpKZiVm-FEc-Ld0131xb/view?usp=drive_link" },
+            { id: 304, name: "Curl de Isquiotibiales", details: "4 series x 12 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1jIPfQDTycF0A0T61dS3UDRs-Gs6z2MRD/view?usp=drive_link" }
         ]
     },
     {
         id: 4,
         name: "Jueves - Hombros",
         exercises: [
-            { id: 401, name: "Press Militar", details: "4 series x 10 reps", completed: false },
-            { id: 402, name: "Elevaciones Laterales", details: "4 series x 15 reps", completed: false }
+            { id: 401, name: "Press Militar", details: "4 series x 10 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1UMadyRFQcolCNq1iIZZMAl7mOITAZ6QK/view?usp=drive_link" },
+            { id: 402, name: "Elevaciones Laterales", details: "4 series x 15 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1z_oif4ehyZukVUqjgs06jvCEr7Ozcef5/view?usp=drive_link" },
+            { id: 403, name: "Press Arnold", details: "4 series x 10 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1_RCEVN2Td-xMdDhwJBEcMND7nYnGsfXc/view?usp=drive_link" },
+            { id: 404, name: "Aperturas Inversas", details: "4 series x 15 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1991qtRXOkeR19Vw_YZ_C2dhVge93JQDa/view?usp=drive_link" }
         ]
     },
     {
         id: 5,
         name: "Viernes - Bíceps y Tríceps",
         exercises: [
-            { id: 501, name: "Curl de Bíceps", details: "4 series x 12 reps", completed: false },
-            { id: 502, name: "Extensión de Tríceps", details: "4 series x 12 reps", completed: false }
+            { id: 501, name: "Curl de Bíceps", details: "4 series x 12 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1yapUAxGE_dnol6D_HLto3IJ79abMNpl-/view?usp=drive_link" },
+            { id: 502, name: "Extensión de Tríceps", details: "4 series x 12 reps", completed: false, videoUrl: "https://drive.google.com/file/d/1DKj5P-78cFgpjktFgTng26DfgGbpDm6M/view?usp=drive_link" },
+            { id: 503, name: "Curl de Martillo", details: "4 series x 12 reps", completed: false, videoUrl: "https://drive.google.com/file/d/10c6vkpZ-g_pUi31WmT-tXoqaAZuUZe0m/view?usp=drive_link" },
+            { id: 504, name: "Fondos en Paralelas (Dips)", details: "4 series al fallo", completed: false, videoUrl: "https://drive.google.com/file/d/1qiXItKZnrOif2dL7Z1UJ88o-R-bkRTU6/view?usp=drive_link" }
         ]
     }
 ];
 
 /* =========================================
-   [JS-2] FUNCIÓN DE RENDERIZADO INICIAL
+   [JS-2 y JS-5] RENDERIZADO Y RESUMEN SEMANAL
    ========================================= */
 const appContainer = document.getElementById('app-container');
 
+function updateWeeklySummary() {
+    let totalExercises = 0;
+    let completedExercises = 0;
+
+    // Calcular totales
+    weeklyRoutine.forEach(day => {
+        totalExercises += day.exercises.length;
+        completedExercises += day.exercises.filter(ex => ex.completed).length;
+    });
+
+    // Actualizar texto y barra
+    document.getElementById('weekly-progress-text').textContent = `${completedExercises} de ${totalExercises} ejercicios completados`;
+    
+    const percentage = totalExercises === 0 ? 0 : (completedExercises / totalExercises) * 100;
+    document.getElementById('weekly-progress-bar').style.width = `${percentage}%`;
+
+    // Evaluar meta semanal (15)
+    const achievementMessage = document.getElementById('achievement-message');
+    if (completedExercises >= WEEKLY_GOAL) {
+        achievementMessage.classList.remove('hidden');
+    } else {
+        achievementMessage.classList.add('hidden');
+    }
+}
+
 function renderApp() {
-    // Vaciamos el contenedor (eliminando el HTML estático de prueba)
     appContainer.innerHTML = '';
 
-    // Iteramos sobre los días
     weeklyRoutine.forEach(day => {
-        // Calculamos cuántos están completados inicialmente
         const completedCount = day.exercises.filter(ex => ex.completed).length;
         
-        // Creamos la tarjeta del día
         const dayCard = document.createElement('section');
         dayCard.className = 'day-card';
-        dayCard.dataset.dayId = day.id; // Guardamos el ID en el DOM para uso futuro
+        dayCard.dataset.dayId = day.id;
 
-        // Generamos el HTML interno de la tarjeta usando Template Literals
         dayCard.innerHTML = `
             <header class="day-card-header">
                 <h2 class="day-title">${day.name}</h2>
@@ -77,48 +108,85 @@ function renderApp() {
                         <label for="ex-${exercise.id}" class="exercise-label">
                             <span class="exercise-name">${exercise.name}</span>
                             <span class="exercise-details">${exercise.details}</span>
+                            <a href="${exercise.videoUrl}" target="_blank" class="video-link">🎥 Ver ejecución correcta</a>
                         </label>
                     </li>
                 `).join('')}
             </ul>
         `;
-
-        // Añadimos la tarjeta al contenedor principal
         appContainer.appendChild(dayCard);
     });
+
+    // Siempre que renderizamos, actualizamos el resumen global superior
+    updateWeeklySummary();
 }
 
 /* =========================================
-   [JS-3] y [JS-4] EVENTOS Y LÓGICA DE ESTADO
+   [JS-3, JS-4, JS-7 y JS-8] EVENTOS Y LÓGICA
    ========================================= */
-// Delegación de eventos: Escuchamos clics en el contenedor padre, no en cada checkbox individual
+
+// Evento de checkboxes
 appContainer.addEventListener('change', (event) => {
-    // Verificamos si lo que disparó el evento fue un checkbox de ejercicio
     if (event.target.classList.contains('exercise-checkbox')) {
-        
-        // 1. Identificamos los elementos del DOM afectados
         const checkbox = event.target;
         const exerciseItem = checkbox.closest('.exercise-item');
         const dayCard = checkbox.closest('.day-card');
         
-        // 2. Extraemos los IDs desde los data-attributes
         const exerciseId = parseInt(exerciseItem.dataset.exerciseId);
         const dayId = parseInt(dayCard.dataset.dayId);
 
-        // 3. Actualizamos nuestro Modelo Mock (El Estado)
         const day = weeklyRoutine.find(d => d.id === dayId);
         const exercise = day.exercises.find(ex => ex.id === exerciseId);
-        exercise.completed = checkbox.checked; // Sincronizamos el estado con el checkbox
+        exercise.completed = checkbox.checked;
 
-        // 4. Actualizamos la Vista (DOM)
-        // Hacemos "toggle" de la clase visual según el nuevo estado
         exerciseItem.classList.toggle('is-completed', exercise.completed);
         
-        // Recalculamos y actualizamos el texto de progreso de ese día específico
         const newCompletedCount = day.exercises.filter(ex => ex.completed).length;
-        const progressText = dayCard.querySelector('.day-progress');
-        progressText.textContent = `${newCompletedCount} de ${day.exercises.length} completados`;
+        dayCard.querySelector('.day-progress').textContent = `${newCompletedCount} de ${day.exercises.length} completados`;
+
+        // Llamar a la actualización global al marcar/desmarcar
+        updateWeeklySummary();
     }
+});
+
+// Evento: Reiniciar Semana
+document.getElementById('btn-reset').addEventListener('click', () => {
+    const confirmar = confirm("¿Estás seguro de que quieres reiniciar todos tus progresos de esta semana?");
+    if (confirmar) {
+        weeklyRoutine.forEach(day => {
+            day.exercises.forEach(ex => ex.completed = false);
+        });
+        renderApp(); // Volvemos a pintar toda la app limpia
+    }
+});
+
+// Evento: Temporizador de Descanso
+let timerInterval;
+document.getElementById('btn-timer').addEventListener('click', (event) => {
+    const btnTimer = event.target;
+    const timerDisplay = document.getElementById('timer-display');
+    let timeLeft = 45; // 45 segundos de descanso por defecto
+
+    // Deshabilitar botón para evitar múltiples clics
+    btnTimer.disabled = true;
+    timerDisplay.textContent = `⏳ ${timeLeft}s`;
+
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        timerDisplay.textContent = `⏳ ${timeLeft}s`;
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            timerDisplay.textContent = "";
+            btnTimer.disabled = false;
+            
+            // Opcional: Sonido nativo super sencillo aprovechando la API de SpeechSynthesis (voz del navegador)
+            const speech = new SpeechSynthesisUtterance("Tiempo de descanso finalizado. ¡A darle!");
+            window.speechSynthesis.speak(speech);
+            
+            alert("¡Tiempo de descanso finalizado! Prepárate para la siguiente serie.");
+        }
+    }, 1000);
 });
 
 // Inicializamos la aplicación
