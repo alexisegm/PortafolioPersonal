@@ -2,7 +2,7 @@
 
 **Metadatos**
 - Repositorio: Proyecto DWF
-- Equipo / autor: Alexis González - Xamuel Romero
+- Equipo / autores: Alexis González - Xamuel Romero
 - Fecha: 20 de mayo de 2026
 - Patrón detectado: Patrón A (Monolito en app.js con estado global mutable)
 
