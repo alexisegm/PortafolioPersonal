@@ -31,3 +31,16 @@
 ## Capa 4: Control de Versiones y Entrega
 - [x] [GIT-1] Configuración inicial del repositorio, ramas de trabajo colaborativo y despliegue continuo en GitHub Pages.
 - [x] [DOCS-1] Elaboración de especificaciones técnicas y guía de mantenimiento del software.
+---
+# Fase 3: Refactorización (De Monolito a Modular)
+
+## Oleada 1: Extracción de Datos (Completada)
+- [x] [REF-1] Crear la estructura de carpetas inicial (`src/config/`).
+- [x] [REF-2] Crear el archivo `data.js` para aislar la información.
+- [x] [REF-3] Extraer los datos estáticos (mock data) del archivo monolítico `app.js`.
+- [x] [REF-4] Implementar ES Modules exportando la data desde `data.js`.
+- [x] [REF-5] Importar la data exitosamente dentro de `app.js`.
+- [x] [REF-6] Validar que la interfaz renderice correctamente los datos.
+
+## Oleada 2: Modularización de Lógica y UI (Pendiente)
+- [ ] *[Aquí iremos definiendo los próximos pasos de la arquitectura]*
