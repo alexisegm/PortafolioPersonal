@@ -50,5 +50,13 @@ export const weeklyRoutine = [
             { id: 503, name: "Curl de Martillo", details: "3 series x 12 reps", completed: false, videoUrl: "https://drive.google.com/file/d/10c6vkpZ-g_pUi31WmT-tXoqaAZuUZe0m/view?usp=drive_link" },
             { id: 504, name: "Fondos en Paralelas", details: "3 series x al fallo", completed: false, videoUrl: "https://drive.google.com/file/d/1qiXItKZnrOif2dL7Z1UJ88o-R-bkRTU6/view?usp=drive_link" }
         ]
+    },
+    {
+        id: 6,
+        name: "Sábado - Cardio",
+        exercises: [
+            { id: 61, name: "Spinning", details: "Sesión de intensidad moderada", completed: false },
+            { id: 62, name: "Trotar", details: "Carrera a ritmo constante", completed: false }
+        ]
     }
 ];

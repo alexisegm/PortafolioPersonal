@@ -1,4 +1,6 @@
 import { WEEKLY_GOAL, weeklyRoutine } from './src/config/data.js';
+import { startCountdown } from './src/domain/timer.js';
+
 /* =========================================
    [JS-2 y JS-5] RENDERIZADO Y RESUMEN SEMANAL
    ========================================= */
@@ -47,7 +49,7 @@ function renderApp() {
                 ${day.exercises.map(exercise => {
                     // Condicional para renderizar el enlace solo si existe videoUrl
                     const videoLinkHTML = exercise.videoUrl 
-                        ? `<a href="${exercise.videoUrl}" target="_blank" class="video-link">🎥 Ver ejecución correcta</a>` 
+                        ? `<a href="${exercise.videoUrl}" target="_blank" class="video-link">🎥 ¿Cómo realizar este ejercicio?</a>` 
                         : '';
 
                     return `
@@ -139,21 +141,19 @@ document.getElementById('btn-reset').addEventListener('click', () => {
     }
 });
 
-let timerInterval;
 document.getElementById('btn-timer').addEventListener('click', (event) => {
     const btnTimer = event.target;
     const timerDisplay = document.getElementById('timer-display');
-    let timeLeft = 45; 
+    const duration = 45; 
 
     btnTimer.disabled = true;
-    timerDisplay.textContent = `⏳ ${timeLeft}s`;
 
-    timerInterval = setInterval(() => {
-        timeLeft--;
-        timerDisplay.textContent = `⏳ ${timeLeft}s`;
-
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
+    startCountdown(
+        duration,
+        (timeLeft) => {
+            timerDisplay.textContent = `⏳ ${timeLeft}s`;
+        },
+        () => {
             timerDisplay.textContent = "";
             btnTimer.disabled = false;
             
@@ -162,7 +162,7 @@ document.getElementById('btn-timer').addEventListener('click', (event) => {
             
             alert("¡Tiempo de descanso finalizado! Prepárate para la siguiente serie.");
         }
-    }, 1000);
+    );
 });
 
 // Inicializamos la aplicación
