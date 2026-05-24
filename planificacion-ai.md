@@ -1,4 +1,4 @@
-# Lista de Tareas Generada por IA (Fase de Planificación)
+# Lista de Tareas Generada por IA (Fase de Planificación e implementación: Fase 1 y 2)
 
 ## Capa 1: Estructura y Contenido Estático (index.html)
 - [x] [HTML-1] Estructura base del documento.
@@ -42,5 +42,14 @@
 - [x] [REF-5] Importar la data exitosamente dentro de `app.js`.
 - [x] [REF-6] Validar que la interfaz renderice correctamente los datos.
 
-## Oleada 2: Modularización de Lógica y UI (Pendiente)
-- [ ] *[Aquí iremos definiendo los próximos pasos de la arquitectura]*
+## Oleada 2: Modularización del Temporizador de Descanso (Completada)
+- [x] [REF-7] Crear el módulo de dominio `src/domain/timer.js`.
+- [x] [REF-8] Aislar la lógica matemática del contador (`setInterval` y decremento).
+- [x] [REF-9] Eliminar la variable global mutable `timerInterval` de `app.js`.
+- [x] [REF-10] Configurar eventos basados en *callbacks* (`onTick`, `onComplete`) para el control de la UI.
+
+## Oleada 3: Centralización del Estado (Completada)
+- [x] [REF-11] Crear el módulo de dominio `src/domain/progress.js`.
+- [x] [REF-12] Encapsular las funciones de mutación de datos (`toggleExerciseCompletion`, `resetAllProgress`).
+- [x] [REF-13] Eliminar iteraciones y alteraciones directas de arreglos dentro de los listeners de `app.js`.
+- [x] [REF-14] Delegar el control del estado a `progress.js` manteniendo un flujo de datos unidireccional.
