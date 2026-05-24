@@ -1,5 +1,6 @@
 import { WEEKLY_GOAL, weeklyRoutine } from './src/config/data.js';
 import { startCountdown } from './src/domain/timer.js';
+import { toggleExerciseCompletion, resetAllProgress } from './src/domain/progress.js';
 
 /* =========================================
    [JS-2 y JS-5] RENDERIZADO Y RESUMEN SEMANAL
@@ -49,7 +50,7 @@ function renderApp() {
                 ${day.exercises.map(exercise => {
                     // Condicional para renderizar el enlace solo si existe videoUrl
                     const videoLinkHTML = exercise.videoUrl 
-                        ? `<a href="${exercise.videoUrl}" target="_blank" class="video-link">🎥 ¿Cómo realizar este ejercicio?</a>` 
+                        ? `<a href="${exercise.videoUrl}" target="_blank" class="video-link">🎥 Ver ejecución correcta</a>` 
                         : '';
 
                     return `
@@ -118,12 +119,14 @@ appContainer.addEventListener('change', (event) => {
         const exerciseId = parseInt(exerciseItem.dataset.exerciseId);
         const dayId = parseInt(dayCard.dataset.dayId);
 
-        const day = weeklyRoutine.find(d => d.id === dayId);
-        const exercise = day.exercises.find(ex => ex.id === exerciseId);
-        exercise.completed = checkbox.checked;
+        // Delegamos la mutación del estado al dominio
+        toggleExerciseCompletion(weeklyRoutine, dayId, exerciseId, checkbox.checked);
 
-        exerciseItem.classList.toggle('is-completed', exercise.completed);
+        // Actualización puramente visual (UI)
+        exerciseItem.classList.toggle('is-completed', checkbox.checked);
         
+        // Leemos el estado del dominio para actualizar el texto local
+        const day = weeklyRoutine.find(d => d.id === dayId);
         const newCompletedCount = day.exercises.filter(ex => ex.completed).length;
         dayCard.querySelector('.day-progress').textContent = `${newCompletedCount} de ${day.exercises.length} completados`;
 
@@ -134,9 +137,8 @@ appContainer.addEventListener('change', (event) => {
 document.getElementById('btn-reset').addEventListener('click', () => {
     const confirmar = confirm("¿Estás seguro de que quieres reiniciar todos tus progresos de esta semana?");
     if (confirmar) {
-        weeklyRoutine.forEach(day => {
-            day.exercises.forEach(ex => ex.completed = false);
-        });
+        // Delegamos la limpieza del estado al dominio
+        resetAllProgress(weeklyRoutine);
         renderApp(); 
     }
 });
