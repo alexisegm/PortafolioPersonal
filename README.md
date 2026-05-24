@@ -1,33 +1,32 @@
 # 🏋️‍♂️ Bitácora de Entrenamiento - PRO
 
-Aplicación web frontend interactiva para el registro, seguimiento y control de rutinas de acondicionamiento físico semanal. Desarrollada bajo una arquitectura limpia en 3 capas (Datos, Lógica y UI) utilizando tecnologías web nativas.
+Aplicación web frontend interactiva para el registro, seguimiento y control de rutinas de acondicionamiento físico semanal. Actualmente en **Fase 3 (Refactorización)**, evolucionando de un monolito hacia una arquitectura limpia en 3 capas (Configuración, Dominio y UI) utilizando ES Modules nativos.
 
 ## 👥 Integrantes
 * **Xamuel Romero**
 * **Alexis González**
 
-## 🚀 Características Principales (Fase 1 y Fase 2)
-* **Estructura Semanal Expandida:** Rutina organizada de Lunes a Sábado (incluyendo bloque especial de Cardio).
-* **Control de Progreso Individual:** Contador dinámico por día que registra los ejercicios completados en tiempo real.
+## 🚀 Características Principales
+* **Arquitectura Modular (Nuevo):** Separación estricta de responsabilidades mediante ES Modules (`<script type="module">`). Los datos estáticos, la lógica del temporizador y el estado de la aplicación ahora residen en módulos independientes.
+* **Estructura Semanal Expandida:** Rutina organizada de Lunes a Sábado.
+* **Control de Progreso Individual:** Contador dinámico por día que registra los ejercicios completados en tiempo real, gestionado por un módulo de dominio puro.
 * **Panel de Resumen Semanal:** Barra de progreso global interactiva que calcula el porcentaje de avance de toda la semana.
-* **Sistema de Metas (Mock):** Mensaje automatizado de logro al alcanzar el objetivo de 15 ejercicios completados.
-* **Material Multimedia Integrado:** Enlaces directos a videos demostrativos individuales alojados en la nube para la correcta ejecución de cada ejercicio.
-* **Controles Globales:** * Botón de reinicio completo de la semana con confirmación de seguridad.
-  * Temporizador de descanso de 45 segundos con alertas visuales y asistencia por voz (Text-to-Speech).
-* **Diseño e Interfaz Avanzada:** * Menú lateral de navegación tipo sándwich (*Sidebar*) con desplazamiento suave (*smooth scrolling*) hacia cada día.
+* **Controles Globales:** * Botón de reinicio completo de la semana con confirmación de seguridad y flujo unidireccional de datos.
+  * Temporizador de descanso de 45 segundos con alertas visuales, asistencia por voz (Text-to-Speech) y lógica matemática desacoplada de la interfaz.
+* **Diseño e Interfaz Avanzada:** * Menú lateral de navegación tipo sándwich (*Sidebar*) con desplazamiento suave (*smooth scrolling*).
   * Selector de tema (*Toggle Switch*) con soporte completo para **Modo Oscuro (Dark Mode)**.
   * Diseño 100% responsivo adaptable a dispositivos móviles y de escritorio.
 
 ## 🛠️ Tecnologías Utilizadas
-* **HTML5:** Estructura semántica avanzada y maquetación de componentes.
+* **HTML5:** Estructura semántica, maquetación de componentes e importación nativa de módulos JS.
 * **CSS3:** Diseño de cuadrícula responsivo (CSS Grid, Flexbox), animaciones y variables dinámicas para la gestión de temas.
-* **Vanilla JavaScript (ES6+):** Manipulación eficiente del DOM, arquitectura basada en estados, delegación de eventos y API nativa de síntesis de voz.
+* **JavaScript (ES Modules):** Modularización del código, arquitectura basada en capas, encapsulamiento del estado, manipulación del DOM y API nativa de síntesis de voz.
 
 ## 📋 Instrucciones para Ampliar la Plantilla Semanal
-El proyecto ha sido diseñado siguiendo el principio de modularidad, aislando por completo la capa de datos. Si se desea agregar nuevos días de entrenamiento, modificar las repeticiones o cambiar las rutas de los videos demostrativos, el proceso se realiza exclusivamente en el archivo `app.js`:
+El proyecto ha sido refactorizado aislando por completo la capa de datos y configuración. Si se desea agregar nuevos días de entrenamiento, modificar las repeticiones o cambiar las rutas de los videos demostrativos, el proceso se realiza **exclusivamente** en el módulo de configuración:
 
-1. Abra el archivo `app.js`.
-2. Ubique el arreglo principal de datos denominado `weeklyRoutine`.
+1. Abra el archivo `src/config/data.js`.
+2. Ubique el arreglo principal exportado denominado `weeklyRoutine`.
 3. Para añadir un nuevo día, inserte un nuevo objeto dentro del arreglo respetando la siguiente estructura técnica:
 
 ```javascript
