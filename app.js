@@ -1,6 +1,7 @@
 import { WEEKLY_GOAL, weeklyRoutine } from './src/config/data.js';
 import { startCountdown } from './src/domain/timer.js';
 import { toggleExerciseCompletion, resetAllProgress } from './src/domain/progress.js';
+import { createDayCardHTML } from './src/ui/components.js';
 
 /* =========================================
    [JS-2 y JS-5] RENDERIZADO Y RESUMEN SEMANAL
@@ -30,45 +31,8 @@ function updateWeeklySummary() {
 }
 
 function renderApp() {
-    appContainer.innerHTML = '';
-
-    weeklyRoutine.forEach(day => {
-        const completedCount = day.exercises.filter(ex => ex.completed).length;
-        
-        const dayCard = document.createElement('section');
-        dayCard.className = 'day-card';
-        // Agregamos id para que el menú de navegación funcione
-        dayCard.id = `day-${day.id}`;
-        dayCard.dataset.dayId = day.id;
-
-        dayCard.innerHTML = `
-            <header class="day-card-header">
-                <h2 class="day-title">${day.name}</h2>
-                <p class="day-progress">${completedCount} de ${day.exercises.length} completados</p>
-            </header>
-            <ul class="exercise-list">
-                ${day.exercises.map(exercise => {
-                    // Condicional para renderizar el enlace solo si existe videoUrl
-                    const videoLinkHTML = exercise.videoUrl 
-                        ? `<a href="${exercise.videoUrl}" target="_blank" class="video-link">🎥 Ver ejecución correcta</a>` 
-                        : '';
-
-                    return `
-                    <li class="exercise-item ${exercise.completed ? 'is-completed' : ''}" data-exercise-id="${exercise.id}">
-                        <input type="checkbox" id="ex-${exercise.id}" class="exercise-checkbox" ${exercise.completed ? 'checked' : ''}>
-                        <label for="ex-${exercise.id}" class="exercise-label">
-                            <span class="exercise-name">${exercise.name}</span>
-                            <span class="exercise-details">${exercise.details}</span>
-                            ${videoLinkHTML}
-                        </label>
-                    </li>
-                    `;
-                }).join('')}
-            </ul>
-        `;
-        appContainer.appendChild(dayCard);
-    });
-
+    // Renderizado declarativo: Mapeamos los datos directamente a componentes visuales
+    appContainer.innerHTML = weeklyRoutine.map(day => createDayCardHTML(day)).join('');
     updateWeeklySummary();
 }
 
