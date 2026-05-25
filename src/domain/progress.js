@@ -24,3 +24,25 @@ export function resetAllProgress(routine) {
         day.exercises.forEach(ex => ex.completed = false);
     });
 }
+/**
+ * Calcula las estadísticas del progreso semanal.
+ * @param {Array} routine - El arreglo completo de la rutina semanal.
+ * @returns {Object} Un objeto con el total de ejercicios y los completados.
+ */
+export function calculateWeeklyProgress(routine) {
+    let totalExercises = 0;
+    let completedExercises = 0;
+
+    routine.forEach(day => {
+        totalExercises += day.exercises.length;
+        completedExercises += day.exercises.filter(ex => ex.completed).length;
+    });
+
+    const percentage = totalExercises === 0 ? 0 : (completedExercises / totalExercises) * 100;
+
+    return { 
+        totalExercises, 
+        completedExercises,
+        percentage
+    };
+}

@@ -43,3 +43,20 @@ export function createDayCardHTML(day) {
         </section>
     `;
 }
+
+/**
+ * Actualiza visualmente el resumen semanal en el DOM.
+ * @param {Object} stats - Las estadísticas calculadas (total, completados, porcentaje).
+ * @param {number} weeklyGoal - La meta semanal de ejercicios.
+ */
+export function updateWeeklySummaryUI(stats, weeklyGoal) {
+    document.getElementById('weekly-progress-text').textContent = `${stats.completedExercises} de ${stats.totalExercises} ejercicios completados`;
+    document.getElementById('weekly-progress-bar').style.width = `${stats.percentage}%`;
+
+    const achievementMessage = document.getElementById('achievement-message');
+    if (stats.completedExercises >= weeklyGoal) {
+        achievementMessage.classList.remove('hidden');
+    } else {
+        achievementMessage.classList.add('hidden');
+    }
+}

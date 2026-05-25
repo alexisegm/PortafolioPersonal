@@ -1,7 +1,7 @@
 import { WEEKLY_GOAL, weeklyRoutine } from './src/config/data.js';
 import { startCountdown } from './src/domain/timer.js';
-import { toggleExerciseCompletion, resetAllProgress } from './src/domain/progress.js';
-import { createDayCardHTML } from './src/ui/components.js';
+import { toggleExerciseCompletion, resetAllProgress, calculateWeeklyProgress } from './src/domain/progress.js';
+import { createDayCardHTML, updateWeeklySummaryUI } from './src/ui/components.js';
 
 /* =========================================
    [JS-2 y JS-5] RENDERIZADO Y RESUMEN SEMANAL
@@ -9,25 +9,10 @@ import { createDayCardHTML } from './src/ui/components.js';
 const appContainer = document.getElementById('app-container');
 
 function updateWeeklySummary() {
-    let totalExercises = 0;
-    let completedExercises = 0;
-
-    weeklyRoutine.forEach(day => {
-        totalExercises += day.exercises.length;
-        completedExercises += day.exercises.filter(ex => ex.completed).length;
-    });
-
-    document.getElementById('weekly-progress-text').textContent = `${completedExercises} de ${totalExercises} ejercicios completados`;
-    
-    const percentage = totalExercises === 0 ? 0 : (completedExercises / totalExercises) * 100;
-    document.getElementById('weekly-progress-bar').style.width = `${percentage}%`;
-
-    const achievementMessage = document.getElementById('achievement-message');
-    if (completedExercises >= WEEKLY_GOAL) {
-        achievementMessage.classList.remove('hidden');
-    } else {
-        achievementMessage.classList.add('hidden');
-    }
+    // 1. Calculamos los datos en el dominio
+    const stats = calculateWeeklyProgress(weeklyRoutine);
+    // 2. Pintamos los datos en la UI
+    updateWeeklySummaryUI(stats, WEEKLY_GOAL);
 }
 
 function renderApp() {
