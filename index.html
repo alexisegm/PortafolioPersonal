@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Personal | Desarrollo Web Frontend</title>
+    <style>
+        :root {
+            --bg-color: #1e222b;
+            --card-bg: #282c34;
+            --text-color: #abb2bf;
+            --accent-color: #61afef;
+            --title-color: #e06c75;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .portfolio-container {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--title-color);
+            margin-bottom: 5px;
+        }
+
+        .student-info {
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-link {
+            display: block;
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--accent-color);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-link:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .btn-disabled {
+            border: 1px dashed #5c6370;
+            color: #5c6370;
+            cursor: not-allowed;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #5c6370;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-container">
+        <img src="tu-foto.jpg" alt="Foto Formal" class="profile-img">
+
+        <h1>Alexis González</h1>
+        <div class="student-info">
+            <p><strong>Cédula:</strong> [Ingresa tu Cédula aquí]</p>
+            <p><strong>Correo:</strong> [Ingresa tu Correo aquí]</p>
+            <p>Desarrollo Web Frontend</p>
+        </div>
+
+        <div class="links-section">
+            <a href="./asignacion-01/index.html" class="btn-link">Asignación 01: Vanilla JS (Fase 1 y 2)</a>
+            <a href="./asignacion-02/index.html" class="btn-link">Asignación 02: JS Modular (Refactorización)</a>
+            <a href="#" class="btn-link btn-disabled" onclick="return false;">Asignación 03: Aplicación con React + Vite (Próximamente)</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 - Portafolio de Proyectos</p>
+        </footer>
+    </div>
+
+</body>
+</html>
