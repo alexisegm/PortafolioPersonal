@@ -1,0 +1,246 @@
+/* Reset básico y Variables Globales para EconoRutas */
+:root {
+  --bg-color: #f8f9fa;
+  --text-main: #2b2d42;
+  --text-muted: #8d99ae;
+  --primary-color: #ef233c; /* Un rojo/coral para botones y llamados a la acción */
+  
+  /* Colores Semánticos para el Presupuesto (Requisito del documento) */
+  --budget-gratis: #2ecc71; /* Verde */
+  --budget-medio: #f1c40f;  /* Amarillo */
+  --budget-alto: #e67e22;   /* Naranja */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+/* --- ESTILOS DE COMPONENTES BASE --- */
+
+/* Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.app-header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.app-header nav a:hover {
+  color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.hero-section h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: var(--text-main);
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.hero-filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 25px;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  padding: 25px 20px;
+  background-color: var(--text-main);
+  color: #ffffff;
+  margin-top: 50px;
+  font-size: 0.9rem;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 600px) {
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+  .app-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .app-header nav a {
+    margin: 0 10px;
+  }
+}
+/* --- ESTILOS DEL CATÁLOGO Y TARJETAS TICKET --- */
+
+.catalog-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.catalog-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: var(--text-main);
+}
+
+/* Grid CSS para organizar las tarjetas automáticamente */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Tarjeta Reutilizable */
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-vibe {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card-content {
+  padding: 25px;
+  flex-grow: 1;
+  /* La línea punteada que simula el corte del ticket */
+  border-bottom: 2px dashed #cccccc; 
+}
+
+.card-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  padding-right: 40px; /* Evita que el texto choque con el emoji */
+  color: var(--text-main);
+}
+
+.description {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+}
+
+.location {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+/* Base del Ticket y Botones */
+.card-ticket-stub {
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.budget-tag {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+/* Lógica de colores semánticos en CSS */
+.budget-gratis .budget-tag {
+  background-color: var(--budget-gratis);
+  color: #ffffff;
+}
+
+.budget-medio .budget-tag {
+  background-color: var(--budget-medio);
+  color: #333333; /* Texto oscuro para que lea bien sobre amarillo */
+}
+
+.budget-alto .budget-tag {
+  background-color: var(--budget-alto);
+  color: #ffffff;
+}
+
+.map-btn {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: 1.5px solid var(--primary-color);
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.map-btn:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
