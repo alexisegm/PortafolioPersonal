@@ -26,7 +26,7 @@ App
 └── Footer (Cierre institucional)
 ```
 
-**Justificación:** Se aplicó el principio de separación de responsabilidades. `CatalogSection` actúa como el componente padre inteligente que maneja la importación de datos y la iteración, mientras que `FeatureCard` es un componente presentacional puro ("tonto") que solo se encarga de renderizar la información que recibe, lo que lo hace altamente escalable y reutilizable.
+**Justificación:** Se aplicó el principio de separación de responsabilidades. `CatalogSection` actúa como el componente padre inteligente que maneja la importación de datos y la iteración, mientras que `FeatureCard` es un componente presentacional puro ("hijo") que solo se encarga de renderizar la información que recibe, lo que lo hace altamente escalable y reutilizable.
 
 ## Props utilizadas
 
