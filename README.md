@@ -2,7 +2,7 @@
 
 Perfil personal, orientado a la preparacion como desarrollador web y de aplicaciones móviles enfocado en crear soluciones modulares, eficientes y escalables. Este repositorio funciona como mi portafolio principal y aloja mis proyectos actuales de interfaces frontend, tales como **EconoRutas** y una **Bitácora Training**. 
 
-Aunque aquí visualizarás principalmente mi trabajo de cara al usuario, mi perfil técnico es integral: poseo sólida experiencia aplicando programación orientada a objetos (Python), gestión de bases de datos, arquitectura y despliegue de entornos de desarrollo, integración de hardware y redes, además del uso de Inteligencia Artificial Generativa. Estas habilidades me han permitido conceptualizar y construir proyectos complejos que combinan software y hardware, como un **Sistema de Riego Automatizado**. Estoy en constante evolución, buscando aportar código limpio y arquitectura robusta a cada desafío tecnológico.
+Aunque aquí visualizarás principalmente mi trabajo de cara al usuario, mi perfil técnico es integral: me encuentro adquiriendo y puliendo experiencia en la aplicación de programación orientada a objetos (Python), gestión de bases de datos, arquitectura y despliegue de entornos de desarrollo, integración de hardware y redes, además del uso de Inteligencia Artificial Generativa. Estas habilidades me han permitido conceptualizar y construir proyectos complejos que combinan software y hardware, como un **Sistema de Riego Automatizado**. Estoy en constante evolución, buscando aportar código limpio y arquitectura robusta a cada desafío tecnológico.
 
 ---
 
