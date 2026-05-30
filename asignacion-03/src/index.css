@@ -1,14 +1,15 @@
 /* Reset básico y Variables Globales para EconoRutas */
 :root {
-  --bg-color: #f8f9fa;
-  --text-main: #2b2d42;
+  --bg-color: #121212; /* Fondo general negro "carbón" elegante */
+  --text-main: #2b2d42; /* Texto oscuro (se mantiene para el Hero y Tarjetas) */
+  --text-light: #ffffff; /* Texto claro para contrastar con el fondo negro */
   --text-muted: #8d99ae;
-  --primary-color: #ef233c; /* Un rojo/coral para botones y llamados a la acción */
+  --primary-color: #ef233c; 
   
-  /* Colores Semánticos para el Presupuesto (Requisito del documento) */
-  --budget-gratis: #2ecc71; /* Verde */
-  --budget-medio: #f1c40f;  /* Amarillo */
-  --budget-alto: #e67e22;   /* Naranja */
+  /* Colores Semánticos para el Presupuesto */
+  --budget-gratis: #2ecc71; 
+  --budget-medio: #f1c40f;  
+  --budget-alto: #e67e22;   
 }
 
 * {
@@ -20,19 +21,21 @@
 
 body {
   background-color: var(--bg-color);
-  color: var(--text-main);
+  color: var(--text-light); /* El texto base ahora es blanco */
   line-height: 1.6;
 }
 /* --- ESTILOS DE COMPONENTES BASE --- */
 
-/* Header */
+/* Header - Propuesta 2: Efecto Cristal Esmerilado */
 .app-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 5%;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  background-color: rgba(18, 18, 18, 0.8); /* Negro con 80% de opacidad */
+  backdrop-filter: blur(7px); /* Desenfoque del fondo de la página */
+  -webkit-backdrop-filter: blur(7px); /* Soporte para Safari */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -41,38 +44,77 @@ body {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--primary-color);
+  color: var(--text-light);
 }
 
 .app-header nav a {
   margin-left: 20px;
   text-decoration: none;
-  color: var(--text-main);
+  color: rgba(255, 255, 255, 0.35); /* Blanco ligeramente suavizado */
   font-weight: 500;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .app-header nav a:hover {
   color: var(--primary-color);
 }
+/* Estilo de Píldoras Estilizadas */
+.app-header nav a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 8px 20px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-/* Hero Section */
+.app-header nav a:hover {
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(239, 35, 60, 0.3);
+  transform: translateY(-1px);
+}
+
+/* --- Hero Section con Imagen --- */
 .hero-section {
   text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  /* Aumentamos un poco el padding (espacio interno) para que se vea más la foto */
+  padding: 120px 20px; 
+  /* Agregamos min-height para darle mejor presencia en la pantalla */
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  /* Redujimos la opacidad del rgba de 0.65/0.85 a 0.3/0.5 para aclarar la imagen */
+  background-image: 
+    linear-gradient(rgba(18, 18, 18, 0.0), rgba(18, 18, 18, 0.1)), 
+    url('/hero-1.webp'); /* <-- Asegúrate de tener la extensión correcta aquí */
+    
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  /* Se eliminó la propiedad border-bottom para quitar la línea divisoria */
 }
+
+/* El resto de tus clases (.hero-section h1, .hero-section p, etc.) se mantienen exactamente igual */
 
 .hero-section h1 {
   font-size: 2.8rem;
   margin-bottom: 15px;
-  color: var(--text-main);
+  color: #ffffff; /* Forzamos el título a blanco puro */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombreado para que resalte más */
 }
 
 .hero-section p {
   font-size: 1.2rem;
-  color: var(--text-muted);
+  color: #e2e8f0; /* Un gris muy claro para el subtítulo */
   margin-bottom: 30px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .hero-filters {
@@ -82,11 +124,13 @@ body {
   flex-wrap: wrap;
 }
 
+/* Modificamos un poco los botones para que destaquen sobre la foto */
 .filter-btn {
   padding: 10px 25px;
   border: 2px solid var(--primary-color);
-  background: transparent;
-  color: var(--primary-color);
+  background: rgba(18, 18, 18, 0.5); /* Fondo semitransparente oscuro */
+  backdrop-filter: blur(4px); /* Un pequeño blur dentro del botón */
+  color: #ffffff;
   border-radius: 25px;
   font-weight: bold;
   cursor: pointer;
@@ -95,17 +139,8 @@ body {
 
 .filter-btn:hover {
   background: var(--primary-color);
-  color: #fff;
-}
-
-/* Footer */
-.app-footer {
-  text-align: center;
-  padding: 25px 20px;
-  background-color: var(--text-main);
   color: #ffffff;
-  margin-top: 50px;
-  font-size: 0.9rem;
+  transform: translateY(-2px); /* Pequeño salto al pasar el mouse */
 }
 
 /* Responsividad para móviles */
@@ -133,7 +168,7 @@ body {
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 40px;
-  color: var(--text-main);
+  color: var(--text-light); /* Cambiado a texto claro */
 }
 
 /* Grid CSS para organizar las tarjetas automáticamente */

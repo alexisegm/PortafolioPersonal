@@ -20,14 +20,14 @@ export const planesEconoRutas = [
         vibe: "⛰️"
     },
     {
-        id: 3,
-        title: "Caminata Colonial y Churros",
-        description: "Recorre calles coloridas, visita tiendas de artesanía local y disfruta de unos buenos churros en la plaza central.",
-        budget: "$5 - $10",
-        priceCategory: "medio", // Para el color amarillo
-        locationName: "Pueblo de El Hatillo",
-        mapUrl: "https://maps.app.goo.gl/8J7m4XvY2eD6xQx98",
-        vibe: "📸"
+        id: 5,
+        title: "Ruta Gastronómica Callejera",
+        description: "Un recorrido rápido para resolver el antojo nocturno con comida rápida tradicional de los carritos de la zona.",
+        budget: "Más de $15",
+        priceCategory: "alto", // Para el color naranja
+        locationName: "Calle del Hambre, Baruta",
+        mapUrl: "https://maps.app.goo.gl/2L7m4XvY2eD6xQx98",
+        vibe: "🍔"
     },
     {
         id: 4,
@@ -40,13 +40,24 @@ export const planesEconoRutas = [
         vibe: "🎨"
     },
     {
-        id: 5,
-        title: "Ruta Gastronómica Callejera",
-        description: "Un recorrido rápido para resolver el antojo nocturno con comida rápida tradicional de los carritos de la zona.",
-        budget: "Más de $15",
+        id: 3,
+        title: "Caminata Colonial y Churros",
+        description: "Recorre calles coloridas, visita tiendas de artesanía local y disfruta de unos buenos churros en la plaza central.",
+        budget: "$5 - $10",
+        priceCategory: "medio", // Para el color amarillo
+        locationName: "Pueblo de El Hatillo",
+        mapUrl: "https://maps.app.goo.gl/8J7m4XvY2eD6xQx98",
+        vibe: "📸"
+    },
+    {
+        id: 6,
+        title: "Ruta de Cine y Cotufas",
+        description: "Disfruta de un estreno en pantalla grande con un combo clásico de cotufas y refresco en las salas de la ciudad.",
+        budget: "Entre $5 y $15",
         priceCategory: "alto", // Para el color naranja
-        locationName: "Calle del Hambre, Baruta",
-        mapUrl: "https://maps.app.goo.gl/2L7m4XvY2eD6xQx98",
-        vibe: "🍔"
-    }
+        locationName: "Cines Unidos Sambil, Chacao",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Cines+Unidos+Sambil+Caracas",
+        vibe: "🍿"
+}
+    
 ];
