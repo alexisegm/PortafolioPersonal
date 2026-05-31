@@ -47,17 +47,6 @@ body {
   color: var(--text-light);
 }
 
-.app-header nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.35); /* Blanco ligeramente suavizado */
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.app-header nav a:hover {
-  color: var(--primary-color);
-}
 /* Estilo de Píldoras Estilizadas */
 .app-header nav a {
   text-decoration: none;
@@ -145,6 +134,12 @@ body {
 
 /* Responsividad para móviles */
 @media (max-width: 600px) {
+  /* AGREGAS ESTA NUEVA REGLA PARA LA IMAGEN MÓVIL */
+  .hero-section {
+    background-image: 
+      linear-gradient(rgba(18, 18, 18, 0.0), rgba(18, 18, 18, 0.1)), 
+      url('/hero-7-mobile.jpg'); /* Verifica que la extensión sea la correcta */
+  }
   .hero-section h1 {
     font-size: 2.2rem;
   }
