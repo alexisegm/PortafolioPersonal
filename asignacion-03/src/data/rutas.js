@@ -6,7 +6,7 @@ export const planesEconoRutas = [
         budget: "Gratis",
         priceCategory: "gratis", // Para el color verde
         locationName: "Parque del Este (Gral. Francisco de Miranda)",
-        mapUrl: "https://maps.app.goo.gl/kXzN6Z4TqT2wzWwz7", 
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Parque+del+Este+Gral+Francisco+de+Miranda+Caracas", 
         vibe: "🌳"
     },
     {
@@ -16,27 +16,27 @@ export const planesEconoRutas = [
         budget: "Menos de $5",
         priceCategory: "gratis", // Para el color verde (solo pagas el café)
         locationName: "Centro de Arte Los Galpones",
-        mapUrl: "https://maps.app.goo.gl/9K7m4XvY2eD6xQx98",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Centro+de+Arte+Los+Galpones+Caracas",
         vibe: "🎨"
     },
     {
         id: 2,
         title: "Fresas con Crema en la Montaña",
         description: "Sube en rústico para disfrutar del clima frío, la neblina y una vista espectacular de la ciudad al atardecer.",
-        budget: "$10 - $15",
+        budget: "Entre $10 - $15",
         priceCategory: "medio", // Para el color amarillo
         locationName: "Galipán, Macizo del Ávila",
-        mapUrl: "https://maps.app.goo.gl/5r8V9QvP8eD6xQx98",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Galipan+Macizo+del+Avila+Caracas",
         vibe: "⛰️"
     },
     {
         id: 3,
         title: "Caminata Colonial y Churros",
         description: "Recorre calles coloridas, visita tiendas de artesanía local y disfruta de unos buenos churros en la plaza central.",
-        budget: "$5 - $10",
+        budget: "Entre $5 - $10",
         priceCategory: "medio", // Para el color amarillo
         locationName: "Pueblo de El Hatillo",
-        mapUrl: "https://maps.app.goo.gl/8J7m4XvY2eD6xQx98",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Pueblo+de+El+Hatillo+Caracas",
         vibe: "📸"
     },
     {
@@ -46,14 +46,14 @@ export const planesEconoRutas = [
         budget: "Más de $15",
         priceCategory: "alto", // Para el color naranja
         locationName: "Calle del Hambre, Baruta",
-        mapUrl: "https://maps.app.goo.gl/2L7m4XvY2eD6xQx98",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Calle+del+Hambre+Baruta+Caracas",
         vibe: "🍔"
     },
     {
         id: 6,
         title: "Ruta de Cine y Cotufas",
         description: "Disfruta de un estreno en pantalla grande con un combo clásico de cotufas y refresco en las salas de la ciudad.",
-        budget: "Entre $5 y $15",
+        budget: "Más de $15",
         priceCategory: "alto", // Para el color naranja
         locationName: "Cines Unidos Sambil, Chacao",
         mapUrl: "https://www.google.com/maps/search/?api=1&query=Cines+Unidos+Sambil+Caracas",

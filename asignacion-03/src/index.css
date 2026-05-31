@@ -285,3 +285,25 @@ body {
   background-color: var(--primary-color);
   color: #ffffff;
 }
+/* --- ESTILOS DEL FOOTER --- */
+.app-footer {
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+  background-color: #0a0a0a;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.app-footer p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.app-footer .mission {
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
