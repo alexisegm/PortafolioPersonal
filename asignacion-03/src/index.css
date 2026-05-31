@@ -138,7 +138,7 @@ body {
   .hero-section {
     background-image: 
       linear-gradient(rgba(18, 18, 18, 0.0), rgba(18, 18, 18, 0.1)), 
-      url('/hero-7-mobile.jpg'); /* Verifica que la extensión sea la correcta */
+      url('/hero-7-mobile1.jpg'); /* Verifica que la extensión sea la correcta */
   }
   .hero-section h1 {
     font-size: 2.2rem;
