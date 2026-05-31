@@ -1,8 +1,8 @@
 # 👨‍💻 Alexis | Portafolio de Desarrollo Web y Móvil
 
-Perfil personal, orientado a la preparacion como desarrollador web y de aplicaciones móviles enfocado en crear soluciones modulares, eficientes y escalables. Este repositorio funciona como mi portafolio principal y aloja mis proyectos actuales de interfaces frontend, tales como **EconoRutas** y una **Bitácora Training**. 
+Perfil personal, orientado a la preparación como desarrollador web y de aplicaciones móviles enfocado en crear soluciones modulares, eficientes y escalables. Este repositorio funciona como mi portafolio principal y aloja mis proyectos actuales de interfaces frontend, tales como **EconoRutas** y una **Bitácora Training**. 
 
-Aunque aquí visualizarás principalmente mi trabajo de cara al usuario, mi perfil técnico es integral: me encuentro adquiriendo y puliendo experiencia en la aplicación de programación orientada a objetos (Python), gestión de bases de datos, arquitectura y despliegue de entornos de desarrollo, integración de hardware y redes, además del uso de Inteligencia Artificial Generativa. Estas habilidades me han permitido conceptualizar y construir proyectos complejos que combinan software y hardware, como un **Sistema de Riego Automatizado**. Estoy en constante evolución, buscando aportar código limpio y arquitectura robusta a cada desafío tecnológico.
+Aunque aquí visualizarás principalmente mi trabajo de cara al usuario, mi perfil técnico es integral: me encuentro adquiriendo y puliendo mi experiencia en la aplicación de programación orientada a objetos (Python), gestión de bases de datos, arquitectura y despliegue de entornos de desarrollo, integración de hardware y redes, además del uso de Inteligencia Artificial Generativa. Estas habilidades me han permitido conceptualizar y construir proyectos complejos que combinan software y hardware, como un **Sistema de Riego Automatizado**. Estoy en constante evolución, buscando aportar código limpio y arquitectura robusta a cada desafío tecnológico.
 
 ---
 
@@ -27,7 +27,7 @@ Proyecto integral de control que activa y desactiva el suministro de agua basán
 
 ## 🛠️ Habilidades y Competencias Técnicas
 
-A través de mi formación y práctica profesional, he consolidado conocimientos en un espectro amplio de tecnologías:
+A través de mi formación y práctica profesional, he adquirido conocimientos en un espectro amplio de tecnologías:
 
 * **Desarrollo Web Frontend:** Creación de interfaces modernas, responsivas y modulares, separando responsabilidades para evitar deuda técnica.
 * **Lógica y Programación Fundamental co Python y enfocada a Orientacion de Objetos:** Resolución de problemas, algoritmia y arquitectura de software, principalmente utilizando Python bajo el paradigma orientado a objetos.
