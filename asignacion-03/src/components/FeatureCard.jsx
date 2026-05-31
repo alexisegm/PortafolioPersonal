@@ -10,7 +10,7 @@ const FeatureCard = ({ title, description, budget, locationName, mapUrl, vibe, p
       </div>
       
       {/* El diseño de "ticket" con el color dinámico según la categoría */}
-      <div className={`card-ticket-stub budget-${priceCategory}`}>
+      <div className={`card-ticket-stub budget-${priceCategory} bg-${priceCategory}`}>
         <span className="budget-tag">{budget}</span>
         <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="map-btn">
           Cómo llegar 🗺️

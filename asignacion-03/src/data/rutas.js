@@ -10,6 +10,16 @@ export const planesEconoRutas = [
         vibe: "🌳"
     },
     {
+     id: 4,
+        title: "Tarde Cultural, Arte y Café",
+        description: "Explora galerías de arte contemporáneo, jardines escondidos y disfruta de un buen café bajo la sombra de los árboles.",
+        budget: "Menos de $5",
+        priceCategory: "gratis", // Para el color verde (solo pagas el café)
+        locationName: "Centro de Arte Los Galpones",
+        mapUrl: "https://maps.app.goo.gl/9K7m4XvY2eD6xQx98",
+        vibe: "🎨"
+    },
+    {
         id: 2,
         title: "Fresas con Crema en la Montaña",
         description: "Sube en rústico para disfrutar del clima frío, la neblina y una vista espectacular de la ciudad al atardecer.",
@@ -20,26 +30,6 @@ export const planesEconoRutas = [
         vibe: "⛰️"
     },
     {
-        id: 5,
-        title: "Ruta Gastronómica Callejera",
-        description: "Un recorrido rápido para resolver el antojo nocturno con comida rápida tradicional de los carritos de la zona.",
-        budget: "Más de $15",
-        priceCategory: "alto", // Para el color naranja
-        locationName: "Calle del Hambre, Baruta",
-        mapUrl: "https://maps.app.goo.gl/2L7m4XvY2eD6xQx98",
-        vibe: "🍔"
-    },
-    {
-        id: 4,
-        title: "Tarde Cultural, Arte y Café",
-        description: "Explora galerías de arte contemporáneo, jardines escondidos y disfruta de un buen café bajo la sombra de los árboles.",
-        budget: "Menos de $5",
-        priceCategory: "gratis", // Para el color verde (solo pagas el café)
-        locationName: "Centro de Arte Los Galpones",
-        mapUrl: "https://maps.app.goo.gl/9K7m4XvY2eD6xQx98",
-        vibe: "🎨"
-    },
-    {
         id: 3,
         title: "Caminata Colonial y Churros",
         description: "Recorre calles coloridas, visita tiendas de artesanía local y disfruta de unos buenos churros en la plaza central.",
@@ -48,6 +38,16 @@ export const planesEconoRutas = [
         locationName: "Pueblo de El Hatillo",
         mapUrl: "https://maps.app.goo.gl/8J7m4XvY2eD6xQx98",
         vibe: "📸"
+    },
+    {
+        id: 5,
+        title: "Ruta Gastronómica Callejera",
+        description: "Un recorrido rápido para resolver el antojo nocturno con comida rápida tradicional de los carritos de la zona.",
+        budget: "Más de $15",
+        priceCategory: "alto", // Para el color naranja
+        locationName: "Calle del Hambre, Baruta",
+        mapUrl: "https://maps.app.goo.gl/2L7m4XvY2eD6xQx98",
+        vibe: "🍔"
     },
     {
         id: 6,

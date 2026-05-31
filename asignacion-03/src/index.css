@@ -231,11 +231,22 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fafafa;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 }
 
+/* Fondos dinámicos para la base del ticket */
+.card-ticket-stub.bg-gratis {
+  background-color: rgba(46, 204, 113, 0.2); /* Verde muy transparente */
+}
+
+.card-ticket-stub.bg-medio {
+  background-color: rgba(241, 196, 15, 0.3); /* Amarillo muy transparente */
+}
+
+.card-ticket-stub.bg-alto {
+  background-color: rgba(230, 126, 34, 0.3); /* Naranja muy transparente */
+}
 .budget-tag {
   padding: 6px 14px;
   border-radius: 20px;
