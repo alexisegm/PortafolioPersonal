@@ -43,7 +43,7 @@ El array principal se llama `planesEconoRutas` y está aislado en el archivo `/s
 Asistencia en la configuración inicial del entorno con Vite para asegurar el despliegue correcto en GitHub Pages (`base: './'`), así como la estructuración del esqueleto de componentes base y la lógica semántica de colores en CSS sin librerías externas. Adicionalmente se usó para rastrear y ubicar clases específicas dentro del código (principalmente en el archivo index.css), lo que me permitió aplicar ajustes de diseño con mayor precisión.
 
 **¿Qué modifiqué o corregí yo?**
-La conceptualización del negocio (EconoRutas), los datos reales de los lugares, la inyección manual de las `props` dentro del `.map()` y la organización general de la arquitectura de archivos del repositorio. A la vez que se implementé mejoras enfocadas en el diseño visual y la Experiencia de Usuario (UI/UX), puliendo la estética y la navegación de la aplicación final.
+La conceptualización del negocio (EconoRutas), los datos reales de los lugares, la inyección manual de las `props` dentro del `.map()` y la organización general de la arquitectura de archivos del repositorio. A la vez que implementé mejoras enfocadas en el diseño visual y la Experiencia de Usuario (UI/UX), puliendo la estética y la navegación de la aplicación final.
 
 ## Requisitos técnicos
 - [x] Header
@@ -56,4 +56,9 @@ La conceptualización del negocio (EconoRutas), los datos reales de los lugares,
 - [x] Sin librerías externas de UI
 
 ## Screenshot del Resultado Final
-![Interfaz de EconoRutas](./docs/screenshot.png)
+
+### Vista de Escritorio
+![Interfaz de EconoRutas - Escritorio](./docs/screenshot-desktop.png)
+
+### Vista Móvil (Resposiva)
+![Interfaz de EconoRutas - Móvil](./docs/screenshot-mobile.png)
