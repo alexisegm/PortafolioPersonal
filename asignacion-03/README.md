@@ -11,7 +11,7 @@
 Un catálogo web interactivo diseñado para recopilar opciones de salidas, paseos y actividades en Caracas y sus alrededores, clasificadas por rango de precio. Está pensado para demostrar que el esparcimiento local es accesible para todos.
 
 ## Problema que resuelve
-Elimina la ansiedad financiera al organizar salidas. Muchas personas se cohíben de salir por miedo a gastar de más; esta aplicación aporta transparencia mostrando opciones viables (incluso gratuitas) ideales para compartir en pareja o con grupos de estudio sin desajustar el presupuesto.
+Elimina la ansiedad financiera al organizar salidas. Muchas personas se cohíben de salir por miedo a gastar de más; esta aplicación aporta transparencia mostrando opciones viables (incluso gratuitas) ideales para compartir en pareja, en familia o con grupos de estudio sin desajustar el presupuesto.
 
 ## CTA principal
 "Descubrir planes por menos de $10" y explorar visualmente el catálogo interactivo para tomar decisiones rápidas.
@@ -22,7 +22,7 @@ App
 ├── Header (Branding y navegación estática)
 ├── Hero (Presentación visual y filtros decorativos)
 ├── CatalogSection (Contenedor inteligente de la cuadrícula)
-│   └── FeatureCard × 5 ← renderizado dinámicamente con .map()
+│   └── FeatureCard × 6 ← renderizado dinámicamente con .map()
 └── Footer (Cierre institucional)
 ```
 
@@ -35,15 +35,15 @@ App
 | FeatureCard | `title`, `description`, `budget`, `locationName`, `mapUrl`, `vibe`, `priceCategory` |
 
 ## Array de datos
-El array principal se llama `planesEconoRutas` y está aislado en el archivo `/src/data/rutas.js`. Contiene 5 objetos que alimentan la interfaz mediante el método `.map()`.
+El array principal se llama `planesEconoRutas` y está aislado en el archivo `/src/data/rutas.js`. Contiene 6 objetos que alimentan la interfaz mediante el método `.map()`.
 
 ## IA utilizada
 
 **¿Qué le pedí a la IA?**
-Asistencia en la configuración inicial del entorno con Vite para asegurar el despliegue correcto en GitHub Pages (`base: './'`), así como la estructuración del esqueleto de componentes base y la lógica semántica de colores en CSS sin librerías.
+Asistencia en la configuración inicial del entorno con Vite para asegurar el despliegue correcto en GitHub Pages (`base: './'`), así como la estructuración del esqueleto de componentes base y la lógica semántica de colores en CSS sin librerías externas. Adicionalmente se usó para rastrear y ubicar clases específicas dentro del código (principalmente en el archivo index.css), lo que me permitió aplicar ajustes de diseño con mayor precisión.
 
 **¿Qué modifiqué o corregí yo?**
-La conceptualización del negocio (EconoRutas), los datos reales de los lugares, la inyección manual de las `props` dentro del `.map()` y la organización de la arquitectura de archivos del repositorio.
+La conceptualización del negocio (EconoRutas), los datos reales de los lugares, la inyección manual de las `props` dentro del `.map()` y la organización general de la arquitectura de archivos del repositorio. A la vez que se implementé mejoras enfocadas en el diseño visual y la Experiencia de Usuario (UI/UX), puliendo la estética y la navegación de la aplicación final.
 
 ## Requisitos técnicos
 - [x] Header
