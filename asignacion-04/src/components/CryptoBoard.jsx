@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { CryptoCard } from './CryptoCard';
+import '../styles/cryptodash.css';
 export function CryptoBoard() {
   // 1. Declaración de los tres estados obligatorios
   const [loading, setLoading] = useState(true);

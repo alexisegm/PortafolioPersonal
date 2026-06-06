@@ -1,0 +1,110 @@
+/* src/styles/cryptodash.css */
+
+.dashboard-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+/* Bento Box Grid (Mobile First) */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Colapsado en móvil */
+  gap: 1.25rem;
+}
+
+/* Pantallas grandes: Cuadrícula asimétrica */
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+  }
+
+  /* La 'Hero Card' (El primer elemento, ej. Bitcoin) ocupa más espacio */
+  .crypto-card:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  .crypto-card:nth-child(1) .crypto-price {
+    font-size: 3rem;
+  }
+}
+
+/* Material: Glassmorphism para las tarjetas */
+.crypto-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Micro-interacciones: Hover */
+.crypto-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 240, 255, 0.3); /* Brillo sutil cian en el borde */
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 
+              0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.crypto-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1); /* Fallback si la imagen es transparente */
+  padding: 4px;
+}
+
+.crypto-title h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.crypto-symbol {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.card-body {
+  margin-top: auto;
+}
+
+.crypto-price {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.crypto-change {
+  font-weight: 600;
+  font-size: 1rem;
+}
