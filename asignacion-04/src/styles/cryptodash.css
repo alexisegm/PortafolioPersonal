@@ -1,9 +1,20 @@
 /* src/styles/cryptodash.css */
 
+/* =========================================
+   LAYOUT PRINCIPAL
+   ========================================= */
 .dashboard-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem; /* Reducido en móvil para dar más espacio a las tarjetas */
+  min-height: 100vh;
+}
+
+/* Espaciado mayor solo en escritorio */
+@media (min-width: 768px) {
+  .dashboard-wrapper {
+    padding: 2rem;
+  }
 }
 
 .dashboard-header {
@@ -12,27 +23,32 @@
 }
 
 .dashboard-header h1 {
-  font-size: 2.5rem;
+  font-size: 1.8rem; /* Título más pequeño en móvil para no chocar */
   font-weight: 800;
   letter-spacing: -1px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-header h1 {
+    font-size: 2.5rem; /* Retoma su tamaño en escritorio */
+  }
 }
 
 /* Bento Box Grid (Mobile First) */
 .bento-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Colapsado en móvil */
+  grid-template-columns: 1fr;
   gap: 1.25rem;
 }
 
-/* Pantallas grandes: Cuadrícula asimétrica */
 @media (min-width: 768px) {
   .bento-grid {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(180px, auto);
   }
 
-  /* La 'Hero Card' (El primer elemento, ej. Bitcoin) ocupa más espacio */
-  .crypto-card:nth-child(1) {
+  .crypto-card:nth-child(1),
+  .skeleton-card:nth-child(1) {
     grid-column: span 2;
     grid-row: span 2;
   }
@@ -40,31 +56,45 @@
   .crypto-card:nth-child(1) .crypto-price {
     font-size: 3rem;
   }
+  /* NUEVO: Agrandar el ícono de la Hero Card */
+  .crypto-card:nth-child(1) .crypto-icon {
+    width: 200px;
+    height: 200px;
+    padding: 8px; /* Un poco más de espacio interno para equilibrar */
+  }
+  /* Agrandar el texto del nombre en la Hero Card */
+  .crypto-card:nth-child(1) .crypto-title h3 {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  /* Agrandar el símbolo (BTC) en la Hero Card */
+  .crypto-card:nth-child(1) .crypto-symbol {
+    font-size: 1.1rem;
+  }
 }
 
-/* Material: Glassmorphism para las tarjetas */
+
+/* =========================================
+   TARJETAS DE ACTIVOS (Diseño Sólido)
+   ========================================= */
 .crypto-card {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  background-color: var(--card-bg); /* Fondo 100% sólido */
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
   border-radius: 24px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   overflow: hidden;
 }
 
-/* Micro-interacciones: Hover */
 .crypto-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(0, 240, 255, 0.3); /* Brillo sutil cian en el borde */
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 
-              0 0 20px rgba(0, 240, 255, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card-header {
@@ -78,7 +108,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1); /* Fallback si la imagen es transparente */
+  background: var(--bg-base); 
   padding: 4px;
 }
 
@@ -108,60 +138,104 @@
   font-weight: 600;
   font-size: 1rem;
 }
-/* =========================================
-   ESTADOS: LOADING (SKELETON) Y ERROR
-   ========================================= */
 
-/* Skeleton Screen - Tarjetas de cristal palpitantes */
+/* =========================================
+   ESTADOS: LOADING Y ERROR (Diseño Sólido)
+   ========================================= */
 .skeleton-card {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 24px;
   min-height: 180px;
   animation: pulse 2s infinite ease-in-out;
 }
 
-/* La primera tarjeta (Hero Card) hereda el tamaño en desktop */
-@media (min-width: 768px) {
-  .skeleton-card:nth-child(1) {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-}
-
 @keyframes pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; box-shadow: 0 0 15px rgba(0, 240, 255, 0.05); }
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.9; }
 }
 
-/* Contenedor de Error - Alarma Neón */
 .error-container {
-  grid-column: 1 / -1; /* Ocupa todo el ancho del grid */
-  background: rgba(255, 51, 102, 0.05);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid rgba(255, 51, 102, 0.4);
+  grid-column: 1 / -1;
+  background-color: var(--card-bg);
+  border: 1px solid var(--neon-red); /* Borde rojo para destacar el error */
   border-radius: 24px;
   padding: 3rem 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  box-shadow: inset 0 0 20px rgba(255, 51, 102, 0.1), 
-              0 0 15px rgba(255, 51, 102, 0.2);
 }
 
 .error-container h2 {
   color: var(--neon-red);
   font-size: 2rem;
-  letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(255, 51, 102, 0.5);
 }
 
 .error-container p {
   color: var(--text-muted);
   font-family: monospace;
-  font-size: 1.1rem;
+}
+
+/* =========================================
+   ELEMENTOS INTERACTIVOS (SWITCH)
+   ========================================= */
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem; /* Obliga a mantener una separación segura */
+  margin-bottom: 2rem;
+}
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.theme-icon {
+  font-size: 1.2rem;
+}
+
+.theme-switch {
+  width: 50px;
+  height: 26px;
+  border-radius: 13px; /* Forma de píldora */
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 0;
+}
+
+/* La bolita del interruptor */
+.switch-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Estado Claro */
+.switch-light {
+  background-color: #ff00ff
+}
+.switch-light .switch-thumb {
+  background-color: #ffffff;
+  transform: translateX(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Estado Oscuro */
+.switch-dark {
+  background-color: rgb(0, 217, 255)
+}
+.switch-dark .switch-thumb {
+  background-color: #121212;
+  transform: translateX(24px); /* Mueve la bolita a la derecha */
 }

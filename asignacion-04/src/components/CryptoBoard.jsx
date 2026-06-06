@@ -1,20 +1,37 @@
 import { useState, useEffect } from 'react';
 import { CryptoCard } from './CryptoCard';
 import '../styles/cryptodash.css';
+import { CryptoHeader } from './CryptoHeader';
+
 export function CryptoBoard() {
-  // 1. Declaración de los tres estados obligatorios
+  // 1. Estados obligatorios para la petición asíncrona
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
   const [error, setError] = useState(null);
+  
+  // 2. Estado para el manejo del tema (UI)
+  const [theme, setTheme] = useState('dark');
 
-  // 2. Efecto secundario para el consumo de la API
+  // Función para alternar el tema
+  const toggleTheme = () => {
+    setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
+  };
+
+  // Efecto global para inyectar la clase del tema en el body y cubrir toda la pantalla
   useEffect(() => {
-    // Top 10 monedas por capitalización de mercado en USD
+    if (theme === 'light') {
+      document.body.classList.add('light-theme');
+    } else {
+      document.body.classList.remove('light-theme');
+    }
+  }, [theme]);
+
+  // 3. Efecto secundario para el consumo de la API
+  useEffect(() => {
     const API_URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1';
 
     fetch(API_URL)
       .then(response => {
-        // Validación estricta de la respuesta
         if (!response.ok) {
           throw new Error(`Error de red: ${response.status} ${response.statusText}`);
         }
@@ -22,24 +39,21 @@ export function CryptoBoard() {
       })
       .then(data => {
         setCoins(data);
-        setLoading(false); // Apagamos el loading en el happy path
+        setLoading(false); 
       })
       .catch(err => {
         setError(err.message);
-        setLoading(false); // Apagamos el loading también si hay error
+        setLoading(false); 
       });
-  }, []); // Array de dependencias vacío: solo se ejecuta al montar el componente
+  }, []);
 
-  // 3. Rutas de renderizado estrictas (Separación visual de estados)
-  
+  // 4. Rutas de renderizado estrictas
+
   if (loading) {
     return (
       <section className="dashboard-wrapper">
-        <header className="dashboard-header">
-          <h1>CryptoDash</h1>
-        </header>
+        <CryptoHeader theme={theme} toggleTheme={toggleTheme} />
         <div className="bento-grid">
-          {/* Renderizamos 10 tarjetas esqueleto usando un array temporal */}
           {[...Array(10)].map((_, index) => (
             <div key={index} className="skeleton-card"></div>
           ))}
@@ -51,9 +65,7 @@ export function CryptoBoard() {
   if (error) {
     return (
       <section className="dashboard-wrapper">
-        <header className="dashboard-header">
-          <h1>CryptoDash</h1>
-        </header>
+        <CryptoHeader theme={theme} toggleTheme={toggleTheme} />
         <div className="bento-grid">
           <div className="error-container">
             <h2>⚠️ Falla de Sincronización</h2>
@@ -64,17 +76,14 @@ export function CryptoBoard() {
     );
   }
 
-  // Happy Path: Renderizado de la lista
+  // Happy Path
   return (
     <section className="dashboard-wrapper">
-      <header className="dashboard-header">
-        <h1>CryptoDash</h1>
-      </header>
-      
+      <CryptoHeader theme={theme} toggleTheme={toggleTheme} />
       <div className="bento-grid">
         {coins.map((coin) => (
           <CryptoCard 
-            key={coin.id} // Prop obligatoria en React al usar .map()
+            key={coin.id} 
             name={coin.name}
             symbol={coin.symbol}
             image={coin.image}
