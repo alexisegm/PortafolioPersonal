@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import { CryptoCard } from './CryptoCard';
 export function CryptoBoard() {
   // 1. Declaración de los tres estados obligatorios
   const [loading, setLoading] = useState(true);
@@ -39,14 +39,25 @@ export function CryptoBoard() {
     return <h2>Fallo en la conexión: {error}</h2>;
   }
 
-  // Happy Path: Volcado temporal de datos crudos para auditoría visual
+  // Happy Path: Renderizado de la lista
   return (
-    <section>
-      <h2>CryptoDash - Datos Crudos</h2>
-      {/* Imprimimos el JSON directamente en pantalla para verificar que tenemos la data correcta */}
-      <pre style={{ background: '#eee', padding: '1rem', overflowX: 'auto' }}>
-        {JSON.stringify(coins, null, 2)}
-      </pre>
+    <section className="dashboard-wrapper">
+      <header className="dashboard-header">
+        <h1>CryptoDash</h1>
+      </header>
+      
+      <div className="bento-grid">
+        {coins.map((coin) => (
+          <CryptoCard 
+            key={coin.id} // Prop obligatoria en React al usar .map()
+            name={coin.name}
+            symbol={coin.symbol}
+            image={coin.image}
+            currentPrice={coin.current_price}
+            priceChange24h={coin.price_change_percentage_24h}
+          />
+        ))}
+      </div>
     </section>
   );
 }
