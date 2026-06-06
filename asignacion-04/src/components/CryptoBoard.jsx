@@ -33,11 +33,35 @@ export function CryptoBoard() {
   // 3. Rutas de renderizado estrictas (Separación visual de estados)
   
   if (loading) {
-    return <h2>Sincronizando con el mercado... (Cargando)</h2>;
+    return (
+      <section className="dashboard-wrapper">
+        <header className="dashboard-header">
+          <h1>CryptoDash</h1>
+        </header>
+        <div className="bento-grid">
+          {/* Renderizamos 10 tarjetas esqueleto usando un array temporal */}
+          {[...Array(10)].map((_, index) => (
+            <div key={index} className="skeleton-card"></div>
+          ))}
+        </div>
+      </section>
+    );
   }
 
   if (error) {
-    return <h2>Fallo en la conexión: {error}</h2>;
+    return (
+      <section className="dashboard-wrapper">
+        <header className="dashboard-header">
+          <h1>CryptoDash</h1>
+        </header>
+        <div className="bento-grid">
+          <div className="error-container">
+            <h2>⚠️ Falla de Sincronización</h2>
+            <p>{error}</p>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   // Happy Path: Renderizado de la lista
