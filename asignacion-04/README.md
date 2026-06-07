@@ -1,16 +1,27 @@
-# React + Vite
+# 📊 Asignación 04: CryptoDash
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CryptoDash es una aplicación web interactiva desarrollada con React y Vite, diseñada para consumir y presentar datos del mercado de criptomonedas en tiempo real a través de la API pública de CoinGecko. Este proyecto marca la transición técnica desde el manejo de datos estáticos hacia el consumo asíncrono de fuentes de datos externas, aplicando un diseño moderno "Cyber-Bento" táctil y adaptativo.
 
-Currently, two official plugins are available:
+## 🚀 Características Principales
+* **Datos en Tiempo Real:** Consumo asíncrono y control estricto de la promesa devuelta por la API RESTful.
+* **Arquitectura de Componentes:** Separación de lógica (Smart Component) y UI (Dumb Components).
+* **Estados Visuales Completos:** Manejo integral de estados (`Loading`, `Error`, `Success`) para garantizar la inmersión visual.
+* **Layout Responsivo:** Implementación de un "Bento Box" asimétrico adaptativo, con diseño de Glassmorphism híbrido y Ambient Glow.
+* **Interfaz Dinámica:** Interruptor interactivo tipo "switch" que altera variables CSS globales, alternando entre Modo Claro y Modo Oscuro.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Estructura del Proyecto
+```text
+asignacion-04/
+├── index.html
+├── src/
+│   ├── main.jsx             # Punto de entrada y montaje
+│   ├── App.jsx              # Raíz de la aplicación
+│   ├── components/          # Componentes aislados (Padre/Hijos)
+│   │   ├── CryptoBoard.jsx
+│   │   ├── CryptoCard.jsx
+│   │   └── CryptoHeader.jsx
+│   └── styles/              # Arquitectura de estilos híbrida
+│       ├── global.css       # Variables del sistema y lienzo
+│       └── cryptodash.css   # Estilos específicos del layout Bento
+├── docs/                    # Documentación y auditoría técnica del MVP
+└── dist/                    # Build optimizado para producción

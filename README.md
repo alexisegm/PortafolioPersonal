@@ -18,6 +18,11 @@ Aplicación web diseñada para el registro, seguimiento y gestión de rutinas de
 - **Enfoque:** Transición de código monolítico hacia una estructura modular basada en capas (Configuración, Dominio, UI) y manejo de estados.
 - **Tecnologías:** Vanilla JavaScript, HTML5, CSS3.
 
+### 📊 CryptoDash
+Dashboard financiero interactivo diseñado para el monitoreo en tiempo real de criptoactivos mediante el consumo de APIs públicas.
+- **Enfoque:** Arquitectura basada en componentes (estado/UI), consumo asíncrono de APIs y renderizado adaptativo fluido (Bento Box layout).
+- **Tecnologías:** Desarrollo Web Frontend (DWF), React, Vite, Node.js, CSS3 nativo.
+
 ### 🌱 Sistema de Riego Automatizado
 Proyecto integral de control que activa y desactiva el suministro de agua basándose en el análisis de variables físicas (temperatura y humedad).
 - **Enfoque:** Integración de componentes físicos con lógica de software, control de sensores y automatización de procesos.
