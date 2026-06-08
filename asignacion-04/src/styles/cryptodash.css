@@ -6,14 +6,14 @@
 .dashboard-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem; /* Reducido en móvil para dar más espacio a las tarjetas */
+  padding: 1rem 1rem 0 1rem;
   min-height: 100vh;
 }
 
 /* Espaciado mayor solo en escritorio */
 @media (min-width: 768px) {
   .dashboard-wrapper {
-    padding: 2rem;
+    padding: 2rem 2rem 0 2rem;
   }
 }
 
@@ -23,9 +23,10 @@
 }
 
 .dashboard-header h1 {
+  font-family: 'Orbitron', sans-serif; 
   font-size: 1.8rem; /* Título más pequeño en móvil para no chocar */
   font-weight: 800;
-  letter-spacing: -1px;
+  letter-spacing: 1px;
 }
 
 @media (min-width: 768px) {
@@ -56,11 +57,11 @@
   .crypto-card:nth-child(1) .crypto-price {
     font-size: 3rem;
   }
-  /* NUEVO: Agrandar el ícono de la Hero Card */
+  /* Agrandar el ícono de la Hero Card */
   .crypto-card:nth-child(1) .crypto-icon {
     width: 200px;
     height: 200px;
-    padding: 8px; /* Un poco más de espacio interno para equilibrar */
+    padding: 8px; 
   }
   /* Agrandar el texto del nombre en la Hero Card */
   .crypto-card:nth-child(1) .crypto-title h3 {
@@ -87,9 +88,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.1s ease, background-color 0.1s ease, border-color 0.1s ease, box-shadow 0.1s ease;
   position: relative;
   overflow: hidden;
+  will-change: transform, background-color;
 }
 
 .crypto-card:hover {
@@ -108,7 +110,9 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--bg-base); 
+  object-fit: cover;
+  background-color: var(--card-bg); 
+  transition: none !important;
   padding: 4px;
 }
 
@@ -140,6 +144,43 @@
 }
 
 /* =========================================
+   DATOS FINANCIEROS EXTENDIDOS (Rango 24h)
+   ========================================= */
+.crypto-range-24h {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--btn-border); /* Línea divisoria sutil */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.range-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.range-item:last-child {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.range-label {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.range-value {
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* =========================================
    ESTADOS: LOADING Y ERROR (Diseño Sólido)
    ========================================= */
 .skeleton-card {
@@ -158,7 +199,7 @@
 .error-container {
   grid-column: 1 / -1;
   background-color: var(--card-bg);
-  border: 1px solid var(--neon-red); /* Borde rojo para destacar el error */
+  border: 1px solid var(--neon-red);
   border-radius: 24px;
   padding: 3rem 2rem;
   text-align: center;
@@ -184,8 +225,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem; /* Obliga a mantener una separación segura */
-  margin-bottom: 2rem;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
 }
 
 .theme-switch-wrapper {
@@ -223,7 +264,7 @@
 
 /* Estado Claro */
 .switch-light {
-  background-color: #ff00ff
+  background-color: #ff00ff;
 }
 .switch-light .switch-thumb {
   background-color: #ffffff;
@@ -233,9 +274,83 @@
 
 /* Estado Oscuro */
 .switch-dark {
-  background-color: rgb(0, 217, 255)
+  background-color: rgb(0, 217, 255);
 }
 .switch-dark .switch-thumb {
   background-color: #121212;
-  transform: translateX(24px); /* Mueve la bolita a la derecha */
+  transform: translateX(24px);
+}
+
+/* =========================================
+   BARRA DE BÚSQUEDA (Search Bar)
+   ========================================= */
+.search-container {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 2rem;
+}
+.search-input {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid var(--btn-border);
+  background-color: transparent;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.search-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+/* Efecto Neón al hacer clic (Focus) */
+.search-input:focus {
+  border-color: var(--neon-green);
+  box-shadow: 0 0 10px rgba(0, 255, 153, 0.15); /* Resplandor sutil */
+}
+/* Ajuste Responsivo para Móviles: Pasamos el buscador a una segunda línea */
+@media (max-width: 768px) {
+  .header-actions {
+    flex-wrap: wrap; /* Permite que los elementos salten de línea */
+  }
+  
+  .search-container {
+    order: 3; /* Obliga al buscador a ir de último */
+    max-width: 100%;
+    margin: 1rem 0 0 0; /* Separación superior */
+  }
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.crypto-footer {
+  width: 100%;
+  clear: both;
+  display: block;
+  text-align: center;
+  padding: 5rem 0 1rem 0;
+  padding-bottom: env(safe-area-inset-bottom); 
+  margin-top: 3rem;
+  border-top: 1px solid var(--btn-border);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.crypto-footer p {
+  margin: 0;
+}
+.footer-credits {
+  margin-top: 0.4rem !important; /* Separación entre el copyright y el crédito */
+}
+.crypto-footer a {
+  color: var(--neon-green);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+.crypto-footer a:hover {
+  color: var(--text-main);
 }

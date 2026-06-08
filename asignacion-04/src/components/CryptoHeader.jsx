@@ -1,6 +1,6 @@
 // src/components/CryptoHeader.jsx
 
-export function CryptoHeader({ theme, toggleTheme }) {
+export function CryptoHeader({ theme, toggleTheme, searchTerm, setSearchTerm }) {
   const isDark = theme === 'dark';
 
   return (
@@ -9,6 +9,17 @@ export function CryptoHeader({ theme, toggleTheme }) {
         <h1>CryptoDash</h1>
       </div>
       
+      {/* Barra de búsqueda interactiva */}
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Buscar criptoactivo..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-input"
+        />
+      </div>
+
       {/* Nuevo contenedor del Switch */}
       <div className="theme-switch-wrapper" onClick={toggleTheme}>
         <span className="theme-icon">{isDark ? '🌙' : '☀️'}</span>

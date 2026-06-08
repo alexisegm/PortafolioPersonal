@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { CryptoCard } from './CryptoCard';
 import '../styles/cryptodash.css';
 import { CryptoHeader } from './CryptoHeader';
-
+import { CryptoFooter } from './CryptoFooter';
 export function CryptoBoard() {
+
   // 1. Estados obligatorios para la petición asíncrona
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
@@ -11,6 +12,9 @@ export function CryptoBoard() {
   
   // 2. Estado para el manejo del tema (UI)
   const [theme, setTheme] = useState('dark');
+
+  // Estado para controlar la barra de búsqueda
+  const [searchTerm, setSearchTerm] = useState('');
 
   // Función para alternar el tema
   const toggleTheme = () => {
@@ -52,7 +56,12 @@ export function CryptoBoard() {
   if (loading) {
     return (
       <section className="dashboard-wrapper">
-        <CryptoHeader theme={theme} toggleTheme={toggleTheme} />
+        <CryptoHeader 
+          theme={theme} 
+          toggleTheme={toggleTheme} 
+          searchTerm={searchTerm} 
+          setSearchTerm={setSearchTerm} 
+        />
         <div className="bento-grid">
           {[...Array(10)].map((_, index) => (
             <div key={index} className="skeleton-card"></div>
@@ -65,7 +74,12 @@ export function CryptoBoard() {
   if (error) {
     return (
       <section className="dashboard-wrapper">
-        <CryptoHeader theme={theme} toggleTheme={toggleTheme} />
+        <CryptoHeader 
+          theme={theme} 
+          toggleTheme={toggleTheme} 
+          searchTerm={searchTerm} 
+          setSearchTerm={setSearchTerm} 
+        />
         <div className="bento-grid">
           <div className="error-container">
             <h2>⚠️ Falla de Sincronización</h2>
@@ -76,12 +90,23 @@ export function CryptoBoard() {
     );
   }
 
+  // Filtrar las monedas según el término de búsqueda (por nombre o símbolo)
+  const filteredCoins = coins.filter(coin =>
+    coin.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    coin.symbol.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   // Happy Path
   return (
     <section className="dashboard-wrapper">
-      <CryptoHeader theme={theme} toggleTheme={toggleTheme} />
+      <CryptoHeader 
+          theme={theme} 
+          toggleTheme={toggleTheme} 
+          searchTerm={searchTerm} 
+          setSearchTerm={setSearchTerm} 
+        />
       <div className="bento-grid">
-        {coins.map((coin) => (
+        {filteredCoins.map((coin) => (
           <CryptoCard 
             key={coin.id} 
             name={coin.name}
@@ -89,9 +114,12 @@ export function CryptoBoard() {
             image={coin.image}
             currentPrice={coin.current_price}
             priceChange24h={coin.price_change_percentage_24h}
+            high24h={coin.high_24h} // NUEVO: Dato extendido máximo
+            low24h={coin.low_24h}   // NUEVO: Dato extendido mínimo
           />
         ))}
       </div>
+      <CryptoFooter />
     </section>
   );
 }

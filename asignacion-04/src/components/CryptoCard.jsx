@@ -1,4 +1,6 @@
-export function CryptoCard({ name, symbol, image, currentPrice, priceChange24h }) {
+import { memo } from 'react';
+
+export const CryptoCard = memo(function CryptoCard({ name, symbol, image, currentPrice, priceChange24h, high24h, low24h }) {
   // Evaluamos la tendencia para asignar colores verde o rojo
   const isPositive = priceChange24h >= 0;
 
@@ -17,7 +19,19 @@ export function CryptoCard({ name, symbol, image, currentPrice, priceChange24h }
         <p className={`crypto-change ${isPositive ? 'positive' : 'negative'}`}>
           {isPositive ? '+' : ''}{priceChange24h.toFixed(2)}%
         </p>
+
+        {/* Datos estructurales extendidos: Rango de 24h */}
+        <div className="crypto-range-24h">
+          <div className="range-item">
+            <span className="range-label">Máx 24h:</span>
+            <span className="range-value">${high24h ? high24h.toLocaleString() : '---'}</span>
+          </div>
+          <div className="range-item">
+            <span className="range-label">Mín 24h:</span>
+            <span className="range-value">${low24h ? low24h.toLocaleString() : '---'}</span>
+          </div>
+        </div>
       </div>
     </article>
   );
-}
+});
