@@ -149,10 +149,11 @@
 .crypto-range-24h {
   margin-top: 1.2rem;
   padding-top: 1rem;
-  border-top: 1px dashed var(--btn-border); /* Línea divisoria sutil */
+  border-top: 1px dashed var(--divider-line);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: border-color 0.15s ease;
 }
 
 .range-item {
@@ -243,7 +244,7 @@
 .theme-switch {
   width: 50px;
   height: 26px;
-  border-radius: 13px; /* Forma de píldora */
+  border-radius: 13px;
   border: none;
   position: relative;
   cursor: pointer;
@@ -287,10 +288,11 @@
 .search-container {
   flex: 1;
   max-width: 400px;
-  margin: 0 2rem;
+  margin: 0;
 }
 .search-input {
   width: 100%;
+  box-sizing: border-box;
   padding: 0.8rem 1.2rem;
   border-radius: 12px;
   border: 1px solid var(--btn-border);
@@ -308,18 +310,36 @@
 /* Efecto Neón al hacer clic (Focus) */
 .search-input:focus {
   border-color: var(--neon-green);
-  box-shadow: 0 0 10px rgba(0, 255, 153, 0.15); /* Resplandor sutil */
+  box-shadow: 0 0 10px rgba(0, 255, 153, 0.15);
 }
-/* Ajuste Responsivo para Móviles: Pasamos el buscador a una segunda línea */
+/* Ajuste Responsivo Estricto para Móviles */
 @media (max-width: 768px) {
+  html, body, #root {
+    overflow-x: hidden;
+    width: 100%;
+  }
   .header-actions {
-    flex-wrap: wrap; /* Permite que los elementos salten de línea */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0; 
+  }
+  
+  .dashboard-header {
+    order: 1;
+  }
+
+  .theme-switch-wrapper {
+    order: 2; 
+    margin: 0;
   }
   
   .search-container {
-    order: 3; /* Obliga al buscador a ir de último */
+    order: 3; 
+    flex: 0 0 100%; 
     max-width: 100%;
-    margin: 1rem 0 0 0; /* Separación superior */
+    margin: 1.5rem 0 0 0; 
   }
 }
 
@@ -343,7 +363,7 @@
   margin: 0;
 }
 .footer-credits {
-  margin-top: 0.4rem !important; /* Separación entre el copyright y el crédito */
+  margin-top: 0.4rem !important; 
 }
 .crypto-footer a {
   color: var(--neon-green);

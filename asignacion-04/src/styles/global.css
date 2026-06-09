@@ -1,12 +1,15 @@
 /* src/styles/global.css */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap');
+*, *::before, *::after{
+  box-sizing: border-box;
+}
 :root {
   /* =========================================
      TEMA OSCURO (Por defecto)
      ========================================= */
   /* Lienzo Sólido: Negro profundo */
   --bg-base: #121212; 
-  --bg-glow: rgba(0, 240, 255, 0.40); /* Luz Cian con baja opacidad para el modo oscuro */
+  --bg-glow: rgba(0, 240, 255, 0.40);
   
   /* Tarjetas Sólidas: Gris oscuro para crear un nivel de elevación */
   --card-bg: #1e1e1ea9; 
@@ -28,6 +31,8 @@
   --btn-bg: #2A2A2A;
   --btn-text: #FFFFFF;
   --btn-border: #3A3A3A;
+
+  --divider-line: rgba(255, 250, 250, 0.911);
 }
 
 .light-theme {
@@ -36,11 +41,9 @@
      ========================================= */
   /* Lienzo Sólido: Blanco puro */
   --bg-base: #FFFFFF; 
-  --bg-glow: rgba(255, 0, 229, 0.40); /* Luz Magenta con baja opacidad para el modo claro *
-  /* Tarjetas Sólidas: Blanco puro */
+  --bg-glow: rgba(255, 0, 229, 0.40); 
   --card-bg: #FFFFFF; 
-  /* NOTA: Tarjeta blanca sobre fondo blanco requiere un borde o sombra sutil para existir visualmente */
-  --card-border: #E5E7EB; 
+  --card-border: #989aa0de; 
   --card-shadow: 0 2px 8px rgba(230, 25, 93, 0.493);
   
   /* Tipografía oscura para contraste */
@@ -50,7 +53,9 @@
   /* Controles Interactivos Claro */
   --btn-bg: #F3F4F6;
   --btn-text: #1A1A1A;
-  --btn-border: 0 2px 8px rgba(230, 25, 93, 0.493);
+  --btn-border: #d81cb9a9;
+
+  --divider-line: rgba(0, 0, 0, 0.973);
 }
 
 /* =========================================

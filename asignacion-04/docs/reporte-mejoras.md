@@ -11,3 +11,11 @@
 * **Jerarquía de Pantalla:** Implementación de una "Hero Card" destacada asimétricamente para la moneda líder (Bitcoin), atrayendo automáticamente la vista.
 * **Ambient Glow Adaptativo:** Se diseñó un resplandor atmosférico de luces virtuales (Cian/Magenta) que baña fluidamente la pantalla, ajustando sus métricas (`vw` frente a píxeles fijos) para no sobrecargar los navegadores móviles y mantener coherencia visual.
 * **Micro-interacciones Inmersivas:** Creación de animaciones inmersivas en estados vacíos (Skeleton Screens *pulse*) y un interruptor funcional interactivo que muta de aspecto cromático y posicional entre estados (Modo Claro/Modo Oscuro).
+
+## 3. Iteraciones Post-Despliegue (Fase 9)
+* **Buscador Dinámico:** Se implementó una barra de búsqueda reactiva (estado `searchTerm`) que filtra el renderizado de la cuadrícula en tiempo real.
+* **Datos Estructurales Extendidos:** Se expandió el consumo de la API inyectando los valores de Precio Máximo y Mínimo (Rango de 24h) en cada tarjeta para mayor profundidad analítica.
+* **Optimización de Renderizado (React.memo):** Se refactorizó el componente `CryptoCard` encapsulándolo en `memo()` para evitar re-renderizados innecesarios, eliminando cuellos de botella en la GPU durante la transición de temas.
+* **Refinamiento UI/UX y Responsividad:** * Reestructuración del layout móvil mediante el reseteo del modelo de caja (`box-sizing: border-box`) para evitar desbordamientos laterales de Flexbox.
+  * Inyección de favicon semántico (`📈`) directamente vía SVG para evitar dependencias de archivos estáticos.
+  * Inclusión de un `CryptoFooter` descriptivo anclado dinámicamente al límite inferior del DOM.
