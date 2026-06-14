@@ -32,7 +32,8 @@ const Header = ({ carrito, eliminarDelCarrito, criterioOrden, setCriterioOrden }
   const total = subtotal + envio - descuento;
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-20">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-blue-900/40 border-b border-blue-800/30 shadow-[0_4px_30px_rgba(30,58,138,0.2)]">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-purple-50 to-blue-50 opacity-50 -z-10"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex items-center justify-between">
           <div>
@@ -44,10 +45,7 @@ const Header = ({ carrito, eliminarDelCarrito, criterioOrden, setCriterioOrden }
             </p>
           </div>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full hidden md:flex">
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-              <span className="text-sm font-semibold text-blue-700">API Conectada</span>
-            </div>
+            
 
             {/* Sistema de Sorting / Filtros */}
             <div className="relative">
@@ -94,7 +92,6 @@ const Header = ({ carrito, eliminarDelCarrito, criterioOrden, setCriterioOrden }
               className="p-2 bg-green-50 rounded-full text-green-600 hover:bg-green-100 transition flex items-center justify-center"
               title="Atención al Cliente"
             >
-              {/* Corrección visual: fill="currentColor" */}
               <MessageCircle size={24} fill="currentColor" />
             </button>
 
