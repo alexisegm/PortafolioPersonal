@@ -1,8 +1,21 @@
-# React + Vite
+# TechCart — Catálogo de Productos
+**Asignación 05— Patrón Contenedor/Presentación (DWF)**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+| | |
+|---|---|
+| **Desarrollador** | Alexis E. Gonzalez M. |
 
-Currently, two official plugins are available:
+## ¿Qué es?
+Una interfaz de catálogo de productos dinámico desarrollada bajo una arquitectura moderna orientada a componentes. Permite la visualización, selección y gestión de productos en un carrito de compras persistente.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades principales
+* **Gestión de Carrito:** Sistema de agrupación de productos (incremento/decremento de cantidades).
+* **Persistencia:** Los datos del carrito se mantienen tras recargar la página mediante `localStorage`.
+* **Arquitectura:** Patrón de Separación de Responsabilidades (SRP) entre componentes inteligentes y presentacionales.
+* **UX/UI:** Manejo de estados de carga, carrito vacío y cálculos dinámicos de impuestos/descuentos.
+
+## Estructura
+```text
+App (Smart Component)
+├── Header (Gestión de Carrito, Envíos, Cupones)
+└── Main (Grid de productos con ProductList y ProductCard)
