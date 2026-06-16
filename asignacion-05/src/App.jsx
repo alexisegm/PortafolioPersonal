@@ -6,6 +6,12 @@ export default function App() {
   // Estado para el criterio de ordenamiento seleccionado
   const [criterioOrden, setCriterioOrden] = useState('');
 
+  // Estado para productos favoritos
+  const [favoritos, setFavoritos] = useState(() => {
+    const favoritosGuardados = localStorage.getItem('pixelStore_favoritos');
+    return favoritosGuardados ? JSON.parse(favoritosGuardados) : [];
+  });
+
   // Inicialización perezosa (lazy initializer) para leer el localStorage al cargar
   const [carrito, setCarrito] = useState(() => {
     const carritoGuardado = localStorage.getItem('pixelStore_carrito');
@@ -16,6 +22,20 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('pixelStore_carrito', JSON.stringify(carrito));
   }, [carrito]);
+
+  // Efecto para sincronizar favoritos con localStorage cada vez que cambie
+  useEffect(() => {
+    localStorage.setItem('pixelStore_favoritos', JSON.stringify(favoritos));
+  }, [favoritos]);
+
+  // Lógica para marcar o desmarcar favoritos
+  const toggleFavorito = (productoId) => {
+    setFavoritos((prevFavoritos) =>
+      prevFavoritos.includes(productoId)
+        ? prevFavoritos.filter((id) => id !== productoId)
+        : [...prevFavoritos, productoId]
+    );
+  };
 
   // Lógica de agrupación de carrito
   const agregarAlCarrito = (producto) => {
@@ -59,12 +79,15 @@ export default function App() {
         eliminarDelCarrito={eliminarDelCarrito} 
         criterioOrden={criterioOrden}
         setCriterioOrden={setCriterioOrden}
+        favoritosCount={favoritos.length}
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <ProductList 
           agregarAlCarrito={agregarAlCarrito} 
           criterioOrden={criterioOrden}
+          favoritos={favoritos}
+          toggleFavorito={toggleFavorito}
         />
       </main>
 

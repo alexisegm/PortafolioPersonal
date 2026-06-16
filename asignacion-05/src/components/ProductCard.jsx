@@ -1,7 +1,7 @@
 import React from 'react';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Heart } from 'lucide-react';
 
-const ProductCard = ({ product, agregarAlCarrito }) => {
+const ProductCard = ({ product, agregarAlCarrito, favorito, toggleFavorito }) => {
   const isAvailable = product.stock > 0;
 
   return (
@@ -12,6 +12,14 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
           ¡OFERTA!
         </div>
       )}
+
+      <button
+        onClick={() => toggleFavorito(product.id)}
+        className={`absolute top-3 left-3 z-10 p-2 rounded-full transition ${favorito ? 'bg-red-100 text-red-600' : 'bg-white text-gray-400 hover:bg-gray-100 hover:text-red-500'}`}
+        aria-label={favorito ? 'Quitar favorito' : 'Agregar a favoritos'}
+      >
+        <Heart size={18} fill={favorito ? 'currentColor' : 'none'} />
+      </button>
 
       <div className="h-48 w-full flex justify-center items-center bg-white mb-4 rounded-md overflow-hidden">
         <img 

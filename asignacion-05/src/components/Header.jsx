@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ShoppingCart, X, MessageCircle, Filter } from 'lucide-react';
 
-const Header = ({ carrito, eliminarDelCarrito, criterioOrden, setCriterioOrden }) => {
+const Header = ({ carrito, eliminarDelCarrito, criterioOrden, setCriterioOrden, favoritosCount }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [envio, setEnvio] = useState(0);
@@ -37,9 +37,14 @@ const Header = ({ carrito, eliminarDelCarrito, criterioOrden, setCriterioOrden }
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-extrabold text-blue-600 tracking-tight">
-              PixelStore
-            </h1>
+            <div className="flex items-center gap-3">
+              <h1 className="text-3xl font-extrabold text-blue-600 tracking-tight">
+                PixelStore
+              </h1>
+              <span className="inline-flex items-center rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-700">
+                {favoritosCount} favorito{favoritosCount === 1 ? '' : 's'}
+              </span>
+            </div>
             <p className="text-sm text-gray-500 font-medium mt-1">
               Interfaz Modular de Alto Rendimiento
             </p>

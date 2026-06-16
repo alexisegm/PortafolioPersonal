@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Loader2, AlertCircle, Inbox } from 'lucide-react';
 import ProductCard from './ProductCard';
 
-const ProductList = ({ agregarAlCarrito, criterioOrden }) => {
+const ProductList = ({ agregarAlCarrito, criterioOrden, favoritos, toggleFavorito }) => {
   const [products, setProducts] = useState([]); 
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null);     
@@ -114,6 +114,8 @@ const ProductList = ({ agregarAlCarrito, criterioOrden }) => {
           key={product.id} 
           product={product} 
           agregarAlCarrito={agregarAlCarrito}
+          favorito={favoritos.includes(product.id)}
+          toggleFavorito={toggleFavorito}
         />
       ))}
     </div>
