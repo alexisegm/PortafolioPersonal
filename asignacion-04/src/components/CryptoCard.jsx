@@ -1,8 +1,8 @@
 import { memo } from 'react';
 
 export const CryptoCard = memo(function CryptoCard({ name, symbol, image, currentPrice, priceChange24h, high24h, low24h }) {
-  // Evaluamos la tendencia para asignar colores verde o rojo
-  const isPositive = priceChange24h >= 0;
+  // Evaluamos la tendencia solo si priceChange24h no es null
+  const isPositive = priceChange24h !== null && priceChange24h >= 0;
 
   return (
     <article className="crypto-card">
@@ -15,9 +15,13 @@ export const CryptoCard = memo(function CryptoCard({ name, symbol, image, curren
       </header>
       
       <div className="card-body">
-        <p className="crypto-price">${currentPrice.toLocaleString()}</p>
+        <p className="crypto-price">${currentPrice ? currentPrice.toLocaleString() : '---'}</p>
+        
+        {/* Renderizado condicional seguro para toFixed */}
         <p className={`crypto-change ${isPositive ? 'positive' : 'negative'}`}>
-          {isPositive ? '+' : ''}{priceChange24h.toFixed(2)}%
+          {priceChange24h !== null 
+            ? `${isPositive ? '+' : ''}${priceChange24h.toFixed(2)}%` 
+            : '---%'}
         </p>
 
         {/* Datos estructurales extendidos: Rango de 24h */}
