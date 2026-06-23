@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { CryptoCard } from './CryptoCard';
+import { CryptoGrid } from './CryptoGrid';
 import '../styles/cryptodash.css';
 import { CryptoHeader } from './CryptoHeader';
 import { CryptoFooter } from './CryptoFooter';
@@ -105,20 +106,7 @@ export function CryptoBoard() {
           searchTerm={searchTerm} 
           setSearchTerm={setSearchTerm} 
         />
-      <div className="bento-grid">
-        {filteredCoins.map((coin) => (
-          <CryptoCard 
-            key={coin.id} 
-            name={coin.name}
-            symbol={coin.symbol}
-            image={coin.image}
-            currentPrice={coin.current_price}
-            priceChange24h={coin.price_change_percentage_24h}
-            high24h={coin.high_24h} // NUEVO: Dato extendido máximo
-            low24h={coin.low_24h}   // NUEVO: Dato extendido mínimo
-          />
-        ))}
-      </div>
+      <CryptoGrid coins={filteredCoins} />
       <CryptoFooter />
     </section>
   );
